@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GLOBAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, 
+body{
+    font-family: 'Playwrite VN', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+/* BANNER */
+.banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner__slick {
+    display: flex;
+    flex-wrap: nowrap; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.banner__item {
+    width: 100%; 
+    height: 400px; 
+    overflow: hidden; 
+}
+
+.banner__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Tăng kích thước nút điều hướng */
+.slick-prev, .slick-next {
+    width: 50px; 
+    height: 50px; 
+    z-index: 1000; 
+}
+.slick-prev {
+    left: -60px;
+}
+.slick-next {
+    right: -60px; 
+}
+
+.slick-prev::before, .slick-next::before {
+    font-size: 30px; 
+    color: #e12885; 
+}
+@media (max-width: 768px) {
+    .slick-prev, .slick-next {
+        width: 40px; 
+        height: 40px;
+    }
+    .slick-prev::before, .slick-next::before {
+        font-size: 20px; 
+    }
+}
+/* INTRODUCE */
+.introduce__hh {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px; 
+    padding: 20px;
+}
+
+.banner__left {
+    display: grid;
+    place-items: center; 
+    height: 100%; 
+}
+
+.banner__left img {
+    width: auto; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.banner__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    padding-left: 20px;
+}
+
+.banner__right p {
+    line-height: 1.6;
+}
+
+.banner__text {
+    @apply text-pink-500 my-5;
+}
+
+@media (min-width: 768px) { 
+    .introduce__hh {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .banner__left img {
+        height: 100%; 
+    }
+}
+/* PRODUCT */
+.product__shop{
+    @apply grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5
+}
+.product__item img {
+    @apply w-full h-full object-cover;
+}
+.product__modal{
+    @apply grid grid-cols-2
+}
+.product__item {
+    @apply flex flex-col justify-between; 
+}
+
+.product__modal__left img{
+    @apply rounded-2xl
+}
+.product__modal__left{
+    @apply mr-10
+}
+.product__button button{
+    @apply p-2 bg-pink-300
+}
+.product__addToCard{
+    @apply flex justify-around
+}
+.product__addToCard .product__button2{
+    @apply p-2 bg-pink-300 text-xs rounded-xl font-bold text-pink-700 text-center
+}
+.product__item{
+    position: relative;
+}
+.product__detail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 100px 40px;
+    opacity: 0;
+    transition: all ;
+}
+.product__item:hover .product__detail{
+    opacity: 1;
+}
+/* FEEDBACK */
+.feedback__number{
+    @apply flex text-center justify-around
+}
+.feedback__customer{
+    @apply grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4
+}
+/* BLOG */
+.blog__content{
+    @apply grid grid-cols-1 gap-2 lg:grid-cols-3
+}
+/* VIDEO */
+.video{
+    @apply grid grid-cols-1 gap-3 lg:grid-cols-2
+}
+/* CONTACT */
+.contact__map__form{
+    @apply grid grid-cols-1 gap-2 lg:grid-cols-2
+}
+.contact__map iframe{
+    width: 100%;
+    margin-top: 50px;
+}
+/* SẢN PHẨM LIÊN QUAN */
+.cake__title{
+    @apply grid grid-cols-1 lg:grid-cols-4 gap-2 lg:gap-5
+}
