@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAKE BAKERY AND GIFT</title>
+    <!-- Font Aw -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../src/js/slick/slick.css">
+    <link rel="stylesheet" href="../src/js/slick/slick-theme.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- GG -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap" rel="stylesheet">
+    <!--  -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/output.css">
+</head>
+<body class="bg-brown-600">
+    <!-- HEADER -->
+    <div class="">
+    <nav class="bg-colors-peach border-pink-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <i class="fa fa-birthday-cake text-2xl text-pink-600"></i>
+            <span class=" self-center text-lg  whitespace-nowrap text-pink-600 font-black">H&H Bakery</span>
+        </a>
+        
+        <!--  -->
+        
+            <div class="flex md:order-2 items-center space-x-4">
+                <button type="button" data-dropdown-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-pink-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5 me-1">
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+                <span class="sr-only">Search</span>
+                </button>
+                <div class="relative hidden md:block">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    
+                    <span class="sr-only">Search icon</span>
+                </div>
+                <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-pink-900 border border-pink-300 rounded-lg bg-colors-peach focus:ring-pink-500 focus:border-pink-500 " placeholder="Search...">
+                </div>
+                <div class="flex items-center ">
+                    <!-- Gio hang -->
+                    <a href="../src/giohang.html"><i class="fa fa-shopping-cart text-2xl text-pink-500 mx-2"></i></a>
+                    <!-- dang nhap -->
+                
+                    <!-- Modal toggle -->
+                    <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white  focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg px-5 py-2.5 text-center " type="button">
+                        <i class="fa fa-user-circle text-2xl text-pink-500"></i>
+                    </button>
+                    
+                    <!-- Main modal -->
+                    <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                                    <h3 class="text-xl font-semibold text-pink-900 ">
+                                        ĐĂNG KÝ / ĐĂNG NHẬP
+                                    </h3>
+                                    <button type="button" class="end-2.5 text-pink-400 bg-transparent hover:bg-pink-200 hover:text-pink-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="authentication-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5">
+                                    <form class="space-y-4" action="#">
+                                        <div>
+                                            <label for="email" class="block mb-2 text-sm font-medium text-pink-900">Tên đăng nhập</label>
+                                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 " placeholder="name@company.com" required />
+                                        </div>
+                                        <div>
+                                            <label for="password" class="block mb-2 text-sm font-medium text-pink-900 dark:text-white">Your password</label>
+                                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-pink-50 border border-pink-300 text-pink-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5 " required />
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <div class="flex items-start">
+                                                <div class="flex items-center h-5">
+                                                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-pink-300 rounded bg-pink-50 focus:ring-3 focus:ring-pink-300" required />
+                                                </div>
+                                                <label for="remember" class="ms-2 text-sm font-medium text-pink-900">Nhớ tài khoản</label>
+                                            </div>
+                                            <a href="#" class="text-sm text-pink-700 hover:underline ">Quên mật khẩu</a>
+                                        </div>
+                                        <button type="submit" class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Đăng nhập</button>
+                                        <div class="text-sm font-medium text-pink-500 dark:text-pink-300">
+                                            Bạn chưa có tài khoản? <a href="#" class="text-pink-700 hover:underline">Tạo tài khoản</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                
+                
+                <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-dropdown" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-pink-400 rounded-lg bg-pink-400 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-colors-peach ">
+            <li>
+                <a href="#" class="block py-2 px-3 text-pink-500 rounded md:bg-transparent md:text-pink-700 hover:text-rose-500 font-bold md:p-0 " aria-current="page">Home</a>
+            </li>
+            <li>
+                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 md:w-auto ">Shop <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+        </svg></button>
+                <!-- Dropdown menu -->
+                <div id="dropdownNavbar" class="z-10 hidden font-normal bg-pink-200 divide-y divide-pink-100 rounded-lg shadow w-44 ">
+                    <ul class="py-2 text-sm text-pink-500 " aria-labelledby="dropdownLargeButton">
+                        <li>
+                        <a href="../src/shop.html" class="block px-4 py-2 hover:bg-white 
+                        hover:text-pink-700">Bakery</a>
+                        </li>
+                        <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-white 
+                        hover:text-pink-700">Gift</a>
+                        </li>
+                        <li>
+                        <a href="#" class="block px-4 py-2 hover:bg-white 
+                        hover:text-pink-700">Flower</a>
+                        </li>
+                    </ul>
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-pink-500 hover:bg-white 
+                        hover:text-pink-700">Typical product</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 ">About</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 ">Blog</a>
+            </li>
+            <li>
+                <a href="#" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 dark:text-white">Contact</a>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+
+    </div>
+    <!-- BANNER SHOP -->
+    <section class="banner__shop">
+        <div class="">
+            <section class="bg-center bg-no-repeat bg-[url('/src/img/shop__cake.jpg')] bg-gray-200 bg-blend-multiply">
+                <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl">SHOP BAKERY</h1>
+                    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 mt-10">Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                        <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:ring-pink-300 ">
+                            Get started
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="inline-flex justify-center hover:text-pink-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-pink-100 focus:ring-4 focus:ring-pink-400">
+                            Learn more
+                        </a>  
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- SẢN PHẨM KHUYẾN MÃI -->
+    <section>
+        <div class="">
+            <h3 class="font-thin text-center text-white my-5 lg:text-4xl text-base">SẢN PHẨM TIÊU BIỂU</h3>
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../src/img/banh13.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../src/img/banh14.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../src/img/banh12.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../src/img/banh5.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="../src/img/banh16.jpg "class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                    </div>
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- SHOP__CAKE -->
+    <section class="shop__cake">
+        <div class="container mt-10">
+            <h3 class="font-thin text-center text-white my-5 lg:text-4xl text-base">SẢN PHẨM</h3>
+            <div class="shop__cake__1">
+                <div class="shop__cake__left">
+                    <!-- shop__cake__left- 1 -->
+                    <!--  -->
+                    <div class="shop__cake__left__gl">
+                        <div class="shop__cake__left1">
+                            <form class="max-w-lg mx-auto">
+                                <div class="flex">
+                                    <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only ">Your Email</label>
+                                    <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 " type="button">All categories <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                            </svg></button>
+                                    <div id="dropdown" class="z-10 hidden  divide-y divide-gray-100 rounded-lg shadow-pink-300 w-44 ">
+                                        <ul class="py-2 text-sm text-pink-700 " aria-labelledby="dropdown-button">
+                                        <li>
+                                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Bánh Kem Sinh Nhật</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Bánh trái cây</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 ">Bánh Macaron</button>
+                                        </li>
+                                        <li>
+                                            <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100">Tiramisu</button>
+                                        </li>
+                                        </ul>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-pink-500 focus:border-pink-500 " placeholder="Search Mockups, Logos, Design Templates..." required />
+                                        <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-pink-700 rounded-e-lg border border-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">
+                                            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                                            </svg>
+                                            <span class="sr-only">Search</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- shop__cake__left - 2 -->
+                        <div class="shop__cake__left2 mt-32">
+                            <div class="grid grid-cols-2 lg:grid-cols-2 gap-4">
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh18.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh15.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh16.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh17.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh19.jpg" alt="">
+                                </div>
+                                <div>
+                                    <img class="w-full h-64 object-cover rounded-lg" src="../src/img/banh20.jpg" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="shop__cake__right">
+                    <!-- Item 1  -->
+                    <div class="shop__cake__item">
+                        <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                            <a href="#">
+                                <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh16.jpg" alt="product image" />
+                            </a>
+                            <div class="px-5 pb-5">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Dâu Cây</h5>
+                                </a>
+                                <div class="flex items-center mt-2.5 mb-5">
+                                    <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                    </div>
+                                    <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold text-brown-900 ">225.000</span>
+                                    <a href="../src/product-detail.html"><i class="fa fa-shopping-cart text-brown-900"></i></a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 2  -->
+                    <div class="shop__cake__item">
+                        <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                            <a href="#">
+                                <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh15.jpg" alt="product image" />
+                            </a>
+                            <div class="px-5 pb-5">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Trái Cây</h5>
+                                </a>
+                                <div class="flex items-center mt-2.5 mb-5">
+                                    <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                    </div>
+                                    <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold text-brown-900 ">215.000</span>
+                                    <i class="fa fa-shopping-cart text-brown-900"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 3  -->
+                    <div class="shop__cake__item">
+                        <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                            <a href="#">
+                                <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh17.jpg" alt="product image" />
+                            </a>
+                            <div class="px-5 pb-5">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Matcha</h5>
+                                </a>
+                                <div class="flex items-center mt-2.5 mb-5">
+                                    <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                    </div>
+                                    <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold text-brown-900 ">315.000</span>
+                                    <i class="fa fa-shopping-cart text-brown-900"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Item 4  -->
+                    <div class="shop__cake__item">
+                        <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                            <a href="#">
+                                <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh19.jpg" alt="product image" />
+                            </a>
+                            <div class="px-5 pb-5">
+                                <a href="#">
+                                    <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Macaron</h5>
+                                </a>
+                                <div class="flex items-center mt-2.5 mb-5">
+                                    <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star text-yellow-400"></i>
+                                        <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                    </div>
+                                    <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold text-brown-900 ">215.000</span>
+                                    <i class="fa fa-shopping-cart text-brown-900"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="shop__cake__2">
+                <!-- Item 1 -->
+                <div class="shop__cake__item">
+                    <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                        <a href="#">
+                            <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh14.jpg" alt="product image" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Rau Câu</h5>
+                            </a>
+                            <div class="flex items-center mt-2.5 mb-5">
+                                <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-brown-900 ">200.000</span>
+                                <i class="fa fa-shopping-cart text-brown-900"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="shop__cake__item">
+                    <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                        <a href="#">
+                            <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh13.jpg" alt="product image" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Dưa Lưới</h5>
+                            </a>
+                            <div class="flex items-center mt-2.5 mb-5">
+                                <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-brown-900 ">55.000</span>
+                                <i class="fa fa-shopping-cart text-brown-900"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="shop__cake__item">
+                    <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                        <a href="#">
+                            <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh11.jpg" alt="product image" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Chocolate</h5>
+                            </a>
+                            <div class="flex items-center mt-2.5 mb-5">
+                                <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-brown-900 ">115.000</span>
+                                <i class="fa fa-shopping-cart text-brown-900"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="shop__cake__item">
+                    <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                        <a href="#">
+                            <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh2.jpg" alt="product image" />
+                        </a>
+                        <div class="px-5 pb-5">
+                            <a href="#">
+                                <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Dâu Tây</h5>
+                            </a>
+                            <div class="flex items-center mt-2.5 mb-5">
+                                <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star text-yellow-400"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400"></i>
+                                </div>
+                                <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xl font-bold text-brown-900 ">50.000</span>
+                                <i class="fa fa-shopping-cart text-brown-900"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button chuyển kênh -->
+            <div class="shop__cake__button">
+                <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full ">
+                    <span class="font-medium text-pink-600">1</span>
+                </div>
+                <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full mx-3">
+                    <span class="font-medium text-pink-600 ">2</span>
+                </div>
+                <div class="mx-5">
+                    <i class="fa fa-arrow-right text-pink-600 text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT -->
+    <section class="contact">
+        <div class="container">
+            <div class="contact__map__form">
+                <div class="contact__form">
+                    <h3 class="font-bold text-center text-pink-500 my-5 lg:text-2xl text-base">CONTACT</h3>
+                    <p class="font-thin text-center text-pink-500 my-5 lg:text-xl text-base">Quý khách đặt hàng ở đây</p>
+                    <form class="max-w-md mx-auto">
+                        <div class="relative z-0 w-full mb-5 group">
+                            <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-pink-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-pink-600 peer" placeholder=" " required />
+                            <label for="floating_email" class="peer-focus:font-medium absolute text-sm text-pink-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Họ và tên khách hàng</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-5 group">
+                            <input type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-pink-900 bg-transparent border-0 border-b-2 border-pink-300 appearance-none  focus:outline-none focus:ring-0 focus:border-pink-600 peer" placeholder=" " required />
+                            <label for="floating_password" class="peer-focus:font-medium absolute text-sm text-pink-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Số điện thoại</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-5 group">
+                            <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-pink-900 bg-transparent border-0 border-b-2 border-pink-300 appearance-none dark:text-white dark:border-pink-600 dark:focus:border-pink-500 focus:outline-none focus:ring-0 focus:border-pink-600 peer" placeholder=" " required />
+                            <label for="floating_repeat_password" class="peer-focus:font-medium absolute text-sm text-pink-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Địa chỉ</label>
+                        </div>
+                        <div class="grid md:grid-cols-2 md:gap-6">
+                        <div class="relative z-0 w-full mb-5 group">
+                            <input type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-pink-900 bg-transparent border-0 border-b-2 border-pink-300 appearance-none  dark:focus:border-pink-500 focus:outline-none focus:ring-0 focus:border-pink-600 peer" placeholder=" " required />
+                            <label for="floating_first_name" class="peer-focus:font-medium absolute text-sm text-pink-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Loại bánh</label>
+                        </div>
+                        <div class="relative z-0 w-full mb-5 group">
+                            <input type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-pink-900 bg-transparent border-0 border-b-2 border-pink-300 appearance-none  dark:focus:border-pink-500 focus:outline-none focus:ring-0 focus:border-pink-600 peer" placeholder=" " required />
+                            <label for="floating_last_name" class="peer-focus:font-medium absolute text-sm text-pink-500 dark:text-pink-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-pink-600 peer-focus:dark:text-pink-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Số lượng</label>
+                        </div>
+                        </div>
+                        
+                        <button type="submit" class="text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pink-600 dark:hover:bg-pink-700 dark:focus:ring-pink-800">Đặt hàng </button>
+                    </form>
+                </div>
+                <div class="contact__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62860.41873445527!2d105.71439072995847!3d10.035320458277656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0883fbc944b83%3A0x77fc34233e5e1320!2zTmluaCBLaeG7gXUsIEPhuqduIFRoxqEsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1724623549824!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <div class="">
+        <footer class="footer">
+            <footer class="bg-pink-100 rounded-lg shadow  m-4">
+                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                    <div class="sm:flex sm:items-center sm:justify-between">
+                        <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                            
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap text-pink-500">H&H Bakery</span>
+                        </a>
+                        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6 text-pink-500">Shop</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6 text-pink-500">About</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline me-4 md:me-6 text-pink-500">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hover:underline text-pink-500">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="px-4 py-6 bg-pink-100  md:flex md:items-center md:justify-between">
+                        <span class="text-sm text-pink-500  sm:text-center">© 2025 <a href="https://flowbite.com/">H&H Bakery™</a>. All Rights Reserved.
+                        </span>
+                        <div class="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+                            <a href="#" class="text-pink-400 hover:text-pink-600 ">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 8 19">
+                                        <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/>
+                                    </svg>
+                                <span class="sr-only">Facebook page</span>
+                            </a>
+                            <a href="#" class="text-pink-400 hover:text-pink-600 ">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 21 16">
+                                        <path d="M16.942 1.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.585 11.585 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3A17.392 17.392 0 0 0 .182 13.218a15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.63 10.63 0 0 1-1.706-.83c.143-.106.283-.217.418-.33a11.664 11.664 0 0 0 10.118 0c.137.113.277.224.418.33-.544.328-1.116.606-1.71.832a12.52 12.52 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM6.678 10.813a1.941 1.941 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                                    </svg>
+                                <span class="sr-only">Discord community</span>
+                            </a>
+                            <a href="#" class="text-pink-400 hover:text-pink-600">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 17">
+                                    <path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="sr-only">Twitter page</span>
+                            </a>
+                            <a href="#" class="text-pink-400 hover:text-pink-600">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="sr-only">GitHub account</span>
+                            </a>
+                            <a href="#" class="text-pink-400 hover:text-pink-600">
+                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 0a10 10 0 1 0 10 10A10.009 10.009 0 0 0 10 0Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.094 20.094 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM8 1.707a8.821 8.821 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.758 45.758 0 0 0 8 1.707ZM1.642 8.262a8.57 8.57 0 0 1 4.73-5.981A53.998 53.998 0 0 1 9.54 7.222a32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.64 31.64 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM10 18.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 13.113 11a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="sr-only">Dribbble account</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            
+            
+        </footer>
+    </div>
+    <!-- Flowbite -->
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.js" integrity="sha512-LThUFuq6Y8DTeSxG7VgJQu+3slKAhZ1u3z1EJdZESaVuQIEJ7TXC/DV8xNNEDFW01iWF4tUuzeC4RdiyrRPdRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

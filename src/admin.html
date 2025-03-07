@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị</title>
+    <!-- Font Aw -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../src/js/slick/slick.css">
+    <link rel="stylesheet" href="../src/js/slick/slick-theme.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- GG -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!--  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <!-- Animate -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--  -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/output.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        
+        .chart-container {
+            display: grid;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .chart-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        canvas {
+            max-width: 600px;
+        }
+        .buttons {
+            margin-bottom: 10px;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            height: 100%;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            flex: 1;
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #34495e;
+            text-align: center;
+        }
+        .sidebar ul li:hover {
+            background: #1abc9c;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Quản Trị</h2>
+        <ul>
+            <li onclick="showSection('nhanvien')">Quản lý Nhân Viên</li>
+            <li onclick="showSection('khachhang')">Quản lý Khách Hàng</li>
+            <li onclick="showSection('donhang')">Quản lý Đơn Hàng</li>
+            <li onclick="showSection('sanpham')">Quản lý Sản Phẩm</li>
+            <li onclick="showSection('thongke')">Thống Kê</li>
+        </ul>
+    </div>
+    <div class="content">
+        <!-- QUẢN LÝ NHÂN VIÊN -->
+        <div id="nhanvien" class="section">
+            <h2 class="text-2xl font-bold text-black">Quản lý Nhân Viên</h2>
+            <button id="openFormBtn" type="button" class="py-2.5 px-5 mt-5 me-2 mb-2 text-sm font-thin text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Thêm nhân viên</button>
+            <!--  form popup -->
+            <div id="employeeFormPopup" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center z-10">
+                    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <h2 class="text-lg font-bold mb-4">Thêm Nhân Viên</h2>
+                    <form id="employeeForm">
+                        <div class="mb-4">
+                        <label for="employeeImage" class="block text-sm font-medium text-gray-700">Hình ảnh</label>
+                        <input type="file" id="employeeImage" class="w-full border border-gray-300 rounded-lg p-2" />
+                        </div>
+                        <div class="mb-4">
+                        <label for="employeeName" class="block text-sm font-medium text-gray-700">Tên Nhân Viên</label>
+                        <input type="text" id="employeeName" class="w-full border border-gray-300 rounded-lg p-2" required />
+                        </div>
+                        <div class="mb-4">
+                        <label for="dob" class="block text-sm font-medium text-gray-700">Ngày sinh</label>
+                        <input type="date" id="dob" class="w-full border border-gray-300 rounded-lg p-2" required />
+                        </div>
+                        <div class="mb-4">
+                        <label for="cccd" class="block text-sm font-medium text-gray-700">Số CCCD</label>
+                        <input type="text" id="cccd" class="w-full border border-gray-300 rounded-lg p-2" required />
+                        </div>
+                        <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                        <input type="tel" id="phone" class="w-full border border-gray-300 rounded-lg p-2" required />
+                        </div>
+                        <div class="mb-4">
+                        <label for="position" class="block text-sm font-medium text-gray-700">Vị trí</label>
+                        <select id="position" class="w-full border border-gray-300 rounded-lg p-2">
+                            <option value="Nhân viên làm bánh">Nhân viên làm bánh</option>
+                            <option value="Nhân viên oder">Nhân viên oder</option>
+                            <option value="Nhân viên giao hàng">Nhân viên giao hàng</option>
+                            <option value="Nhân viên phục vụ">Nhân viên phục vụ</option>
+                        </select>
+                        </div>
+                        <div class="flex justify-end gap-2">
+                        <button type="button" id="closeFormBtn" class="bg-gray-400 text-white px-4 py-2 rounded-lg">Hủy</button>
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Thêm</button>
+                        </div>
+                    </form>
+                    </div>
+            </div>
+            <!-- Lọc theo vị trí nhân viên -->
+            <div class="flex justify-end mb-4">
+                <label for="filterPosition" class="text-sm font-medium text-gray-900 mr-2 self-center">Lọc theo vị trí:</label>
+                <select id="filterPosition" class="border border-gray-300 rounded-lg p-2">
+                    <option value="all">Tất cả</option>
+                    <option value="Nhân viên làm bánh">Nhân viên làm bánh</option>
+                    <option value="Nhân viên oder">Nhân viên oder</option>
+                    <option value="Nhân viên giao hàng">Nhân viên giao hàng</option>
+                    <option value="Nhân viên phục vụ">Nhân viên phục vụ</option>
+                </select>
+            </div>
+            <!-- Bảng nhân viên -->
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-16 py-3">
+                                    <span class="sr-only">Image</span>
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Tên Nhân Viên
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Ngày sinh
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Số CCCD
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Số điện thoại
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Vị trí
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="employeeTable">
+                            <!-- 1 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên làm bánh">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang1.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nguyễn Văn A
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1999
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên làm bánh
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 2 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên oder">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang12.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nguyễn Văn B
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1999
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên oder
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 3 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên giao hàng">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang2.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Trần Văn C
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1999
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên giao hàng
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 4 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên phục vụ">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang14.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nguyễn Thị A
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1999
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên phục vụ
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 5 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên phục vụ">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang9.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Hoàng Thị A
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1998
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456788
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0982345679
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên phục vụ
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 6 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên giao hàng">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang3.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Phạm Tấn A
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    10/02/2001
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456786
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0972345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên giao hàng
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 7 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên giao hàng">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang4.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nguyễn Văn A
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/04/2002
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên làm bánh
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 8 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên làm bánh">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang7.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nguyễn Thị B
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1998
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456799
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0867345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên làm bánh
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 9 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên làm bánh">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang8.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Phạm Thị H
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/1997
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0832345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên làm bánh
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- 10 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Nhân viên oder">
+                                <td class="p-4">
+                                    <img src="../src/img/khachhang5.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Võ Thị H
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    20/03/2002
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0123456789
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900">
+                                    Nhân viên oder
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div>
+                                        <button type="button" class="focus:outline-none edit-btn text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Chỉnh sửa</button>
+                                        <button type="button" class="focus:outline-none delete-btn text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá nhân viên</button>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Form Popup Chỉnh Sửa Nhân Viên -->
+                <div id="editEmployeePopup" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                        <h2 class="text-xl font-bold mb-4">Chỉnh sửa nhân viên</h2>
+                        <form id="editEmployeeForm">
+                            <input type="hidden" id="editEmployeeIndex">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Hình ảnh</label>
+                                <input type="file" id="editEmployeeImage" class="w-full border rounded p-2">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Tên nhân viên</label>
+                                <input type="text" id="editEmployeeName" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Ngày sinh</label>
+                                <input type="date" id="editDob" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">CCCD</label>
+                                <input type="text" id="editCccd" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                                <input type="text" id="editPhone" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Vị trí</label>
+                                <select id="editPosition" class="w-full border rounded p-2">
+                                    <option value="Nhân viên làm bánh">Nhân viên làm bánh</option>
+                                    <option value="Nhân viên oder">Nhân viên oder</option>
+                                    <option value="Nhân viên giao hàng">Nhân viên giao hàng</option>
+                                    <option value="Nhân viên phục vụ">Nhân viên phục vụ</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="button" id="closeEditPopup" class="mr-2 bg-gray-500 text-white px-4 py-2 rounded">Hủy</button>
+                                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Lưu thay đổi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <!-- QUẢN LÝ KHÁCH HÀNG -->
+        <div id="khachhang" class="section hidden">
+            <h2 class="text-2xl font-bold text-black">Quản lý Khách Hàng</h2>
+            <!-- Lọc theo loại khách hàng -->
+                <div class="flex justify-end mb-4 mt-5">
+                    <label for="filterPosition_KH" class="text-sm font-medium text-gray-900 mr-2 self-center">Lọc theo loại khách hàng:</label>
+                    <select id="filterPosition_KH" class="border border-gray-300 rounded-lg p-2">
+                        <option value="all">Tất cả</option>
+                        <option value="Khách hàng VIP">Khách hàng VIP</option>
+                        <option value="Khách hàng Thường">Khách hàng Thường</option>
+                    </select>
+                </div>
+            <!-- Bảng Khách Hàng -->
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+                            <tr>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Tên Khách Hàng
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Số CCCD
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Ngày sinh
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Địa chỉ
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Số điện thoại
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    Loại khách hàng
+                                </th>
+                                <th scope="col" class="px-16 py-3 text-center">
+                                    
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="KhachHangTable">
+                            <!-- Khách hàng 1 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Khách hàng VIP">
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng 1
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    19 / 02 / 1987
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    1A An Cư, Ninh Kiều, Cần Thơ
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    09834567
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng VIP
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 Xem_KH">Số lượng đơn</button>
+                                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-10 py-1 me-2 mb-2 edit_KH">Chỉnh sửa</button>
+                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 delete-KH">Xoá khách hàng</button>
+                                </td>
+                            </tr>
+                            <!-- Khách hàng 2 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Khách hàng VIP">
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng 2
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    0912345679
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    11 / 02 / 1989
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    2A An Cư, Ninh Kiều, Cần Thơ
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    09834567
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng Thường
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 Xem_KH">Số lượng đơn</button>
+                                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-10 py-1 me-2 mb-2 edit_KH">Chỉnh sửa</button>
+                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 delete-KH">Xoá khách hàng</button>
+                                </td>
+                            </tr>
+                            <!-- Khách hàng 3 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Khách hàng Thường">
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng 3
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    19 / 02 / 1987
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    1A An Cư, Ninh Kiều, Cần Thơ
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    09834567
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng Thường
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 Xem_KH">Số lượng đơn</button>
+                                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-10 py-1 me-2 mb-2 edit_KH">Chỉnh sửa</button>
+                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 delete-KH">Xoá khách hàng</button>
+                                </td>
+                            </tr>
+                            <!-- Khách hàng 4 -->
+                            <tr class="bg-white border-b border-gray-200 hover:bg-gray-50 employee-row" data-position="Khách hàng Thường">
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng 4
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    0912345678
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    19 / 02 / 1987
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    1A An Cư, Ninh Kiều, Cần Thơ
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    09834567
+                                </td>
+                                <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                    Khách hàng Thường
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-6 py-2.5 me-2 mb-2 Xem_KH">Số lượng đơn</button>
+                                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-10 py-1 me-2 mb-2 edit_KH">Chỉnh sửa</button>
+                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 delete-KH">Xoá khách hàng</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            <!-- Form Popup Chỉnh sửa Khách Hàng -->
+                <div id="editEmployeePopup_KH" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+                        <h2 class="text-xl font-bold mb-4">Chỉnh sửa Thông Tin Khách Hàng</h2>
+                        <form id="editEmployeeForm_KH">
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Tên Khách Hàng</label>
+                                <input type="text" id="editTen" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Số CCCD</label>
+                                <input type="text" id="editCCCD" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Ngày sinh</label>
+                                <input type="date" id="editDob1" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Địa chỉ</label>
+                                <input type="text" id="editDiaChi" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                                <input type="text" id="editPhone1" class="w-full border rounded p-2" required>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-sm font-medium text-gray-700">Loại Khách Hàng</label>
+                                <select id="editPosition_KH" class="w-full border rounded p-2">
+                                    <option value="Khách hàng VIP">Khách Hàng VIP</option>
+                                    <option value="Khách hàng Thường">Khách hàng Thường</option>
+                                </select>
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="button" id="closeEditPopup1" class="mr-2 bg-gray-500 text-white px-4 py-2 rounded">Hủy</button>
+                                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Lưu thay đổi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+        <!-- QUẢN LÝ ĐƠN HÀNG -->
+        <div id="donhang" class="section hidden">
+            <h2>Quản lý Đơn Hàng</h2>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <div class="flex flex-wrap items-center justify-between pb-4">
+                    <div>
+                        <select id="dateFilter" class="border border-gray-300 rounded-lg p-2">
+                            <option value="all">Tất cả</option>
+                            <option value="30">30 ngày gần đây</option>
+                        </select>
+                    </div>
+                    <div>
+                        <select id="statusFilter" class="border border-gray-300 rounded-lg p-2">
+                            <option value="all">Tất cả trạng thái</option>
+                            <option value="Giao hàng thành công">Giao hàng thành công</option>
+                            <option value="Đang giao">Đang giao</option>
+                            <option value="Đã huỷ">Đã huỷ</option>
+                        </select>
+                    </div>
+                </div>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">
+                                Mã đơn hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tên khách hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Địa chỉ nhận hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Số điện thoại nhận hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tổng giá trị đơn hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Ngày đặt hàng
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Tình trạng đơn hàng
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderTableBody">
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50" data-status="Giao hàng thành công" data-total="500000" data-date="2025-01-23">
+                            <td class="px-6 py-4">
+                                DH00001
+                            </td>
+                            <td class="px-6 py-4">
+                                Khách hàng 1
+                            </td>
+                            <td class="px-6 py-4">
+                                1A Lý Tự Trọng, Phường An Cư, Quận Ninh Kiều, TPCT
+                            </td>
+                            <td class="px-6 py-4">
+                                0912345678
+                            </td>
+                            <td class="px-6 py-4">
+                                500.000
+                            </td>
+                            <td class="px-6 py-4">
+                                23 / 01 / 2025
+                            </td>
+                            <td class="px-6 py-4">
+                                <p class="px-4 py-1 text-white text-center bg-green-500">Giao hàng thành công</p>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50" data-status="Giao hàng thành công" data-total="505000" data-date="2025-01-21">
+                            <td class="px-6 py-4">
+                                DH00002
+                            </td>
+                            <td class="px-6 py-4">
+                                Khách hàng 2
+                            </td>
+                            <td class="px-6 py-4">
+                                1A Lý Tự Trọng, Phường An Cư, Quận Ninh Kiều, TPCT
+                            </td>
+                            <td class="px-6 py-4">
+                                0912345678
+                            </td>
+                            <td class="px-6 py-4">
+                                505.000
+                            </td>
+                            <td class="px-6 py-4">
+                                21/ 01/ 2025
+                            </td>
+                            <td class="px-6 py-4">
+                                <p class="px-4 py-1 text-white text-center bg-green-500">Giao hàng thành công</p>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50" data-status="Đang giao" data-total="905000" data-date="2025-01-19">
+                            <td class="px-6 py-4">
+                                DH00003
+                            </td>
+                            <td class="px-6 py-4">
+                                Khách hàng 3
+                            </td>
+                            <td class="px-6 py-4">
+                                1A Lý Tự Trọng, Phường An Cư, Quận Ninh Kiều, TPCT
+                            </td>
+                            <td class="px-6 py-4">
+                                0912345678
+                            </td>
+                            <td class="px-6 py-4">
+                                905.000
+                            </td>
+                            <td class="px-6 py-4">
+                                19/01/2025
+                            </td>
+                            <td class="px-6 py-4">
+                                <p class="px-4 py-1 text-white text-center bg-orange-400">Đang giao</p>
+                            </td>
+                        </tr>
+                        <tr class="bg-white border-b border-gray-200 hover:bg-gray-50" data-status="Đã huỷ" data-total="605000" data-date="2025-01-23">
+                            <td class="px-6 py-4">
+                                DH00004
+                            </td>
+                            <td class="px-6 py-4">
+                                Khách hàng 4
+                            </td>
+                            <td class="px-6 py-4">
+                                1A Lý Tự Trọng, Phường An Cư, Quận Ninh Kiều, TPCT
+                            </td>
+                            <td class="px-6 py-4">
+                                0912345678
+                            </td>
+                            <td class="px-6 py-4">
+                                605.000
+                            </td>
+                            <td class="px-6 py-4">
+                                23/01/2024
+                            </td>
+                            <td class="px-6 py-4">
+                                <p class="px-4 py-1 text-white text-center bg-red-500">Đã huỷ</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="totalAmount" class="mt-4 text-lg font-bold">Tổng tiền: 0</p>
+            </div>
+        </div>
+        <!-- QUẢN LÝ SẢN PHẨM -->
+        <div id="sanpham" class="section hidden"> 
+            <h2 class="text-2xl font-bold text-black">Quản lý Sản Phẩm</h2>
+            <div class="flex mt-5">
+                <div>
+                    <button id="btnBanh" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                        Sản phẩm Bánh
+                    </button>
+                </div>
+                <div>
+                    <button id="btnNen" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">
+                        Sản phẩm Nến
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bảng Bánh -->
+            <div id="bangBanh" class="hidden">
+                <h3 class="mt-5 text-xl font-bold ">Danh sách Bánh</h3>
+                <!-- Nút mở form -->
+                    <button id="openFormBtn1" type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 mt-5">
+                        Thêm sản phẩm
+                    </button>
+                    <!-- Thanh tìm kiếm -->
+                    <div class="mt-4 flex gap-2">
+                        <input id="searchProductInput" type="text" placeholder="Nhập tên sản phẩm..." 
+                            class="w-1/2 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button id="searchProductBtn" 
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                            Tìm kiếm
+                        </button>
+                    </div>
+                    <div id="productForm" class="hidden fixed inset-0 flex z-10 items-center justify-center bg-gray-900 bg-opacity-50">
+                        <div class="bg-white p-6 rounded-lg w-96">
+                            <h2 class="text-lg font-bold mb-4">Thêm sản phẩm</h2>
+                            <label class="block mb-2 text-sm font-medium">Ảnh sản phẩm:</label>
+                            <input id="productImageInput" type="file" class="w-full px-3 py-2 border rounded-lg mb-2">
+                            <img id="productImagePreview" class="w-32 h-32 object-cover border rounded-lg hidden mb-2">
+                    
+                            <label class="block mb-2 text-sm font-medium">Tên sản phẩm:</label>
+                            <input id="productName" type="text" class="w-full px-3 py-2 border rounded-lg">
+                    
+                            <label class="block mb-2 text-sm font-medium">Số lượng đã bán:</label>
+                            <input id="soldQuantity" type="number" class="w-full px-3 py-2 border rounded-lg">
+                    
+                            <label class="block mb-2 text-sm font-medium">Số lượng còn lại:</label>
+                            <input id="remainingQuantity" type="number" class="w-full px-3 py-2 border rounded-lg">
+                    
+                            <label class="block mb-2 text-sm font-medium">Giá:</label>
+                            <input id="productPrice" type="text" class="w-full px-3 py-2 border rounded-lg">
+                    
+                            <label class="block mb-2 text-sm font-medium">Giá khuyến mãi:</label>
+                            <input id="discountPrice" type="text" class="w-full px-3 py-2 border rounded-lg">
+                    
+                            <label class="block mb-2 text-sm font-medium">Mô tả:</label>
+                            <textarea id="productDescription" class="w-full px-3 py-2 border rounded-lg"></textarea>
+                    
+                            <div class="mt-4 flex justify-end">
+                                <button id="closeFormBtn1" class="px-4 py-2 bg-gray-500 text-white rounded-lg mr-2">Hủy</button>
+                                <button id="addProductBtn" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Thêm</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Table -->
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table id="productTable" class="w-full text-sm text-left rtl:text-right text-gray-500">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-16 py-3">
+                                        <span class="sr-only">Image</span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Tên sản phẩm
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Số lượng đã bán
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Số lượng còn lại
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Giá
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        Giá khuyến mãi
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center ">
+                                        Mô tả
+                                    </th>
+                                    <th scope="col" class="px-10 py-3 text-center">
+                                        Hành động
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="banhTableBody">
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+                                        <img src="../src/img/banh36.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900">
+                                        Sản phẩm 1
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        20
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        10
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        100.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        95.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="">
+                                            <a href="">
+                                                <button id="" type="button" class="edit-btn text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-thin rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                                                    Chỉnh sửa
+                                                    </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="delete-btn focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-thin rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá sản phẩm </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+                                        <img src="../src/img/banh37.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900">
+                                        Sản phẩm 2
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        20
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        10
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        100.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        95.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="">
+                                            <a href="">
+                                                <button id="" type="button" class="edit-btn text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-thin rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                                                    Chỉnh sửa
+                                                    </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="delete-btn focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-thin rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá sản phẩm </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+                                        <img src="../src/img/banh50.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900">
+                                        Sản phẩm 3
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        20
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        10
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        100.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        95.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="">
+                                            <a href="">
+                                                <button id="" type="button" class="edit-btn text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-thin rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                                                    Chỉnh sửa
+                                                    </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="delete-btn focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-thin rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá sản phẩm </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+                                        <img src="../src/img/banh10.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900">
+                                        Sản phẩm 4
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        20
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        10
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        100.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        95.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="">
+                                            <a href="">
+                                                <button id="" type="button" class="edit-btn text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-thin rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                                                    Chỉnh sửa
+                                                    </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="delete-btn focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-thin rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá sản phẩm </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="p-4">
+                                        <img src="../src/img/banh29.jpg" class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900">
+                                        Sản phẩm 5
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        20
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        10
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        100.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        95.000
+                                    </td>
+                                    <td class="px-6 py-4 font-thin text-gray-900 text-center">
+                                        
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="">
+                                            <a href="">
+                                                <button id="" type="button" class="edit-btn text-white bg-[#3b5998] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-thin rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 mb-2">
+                                                    Chỉnh sửa
+                                                    </button>
+                                            </a>
+                                            <a href="">
+                                                <button type="button" class="delete-btn focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-thin rounded-lg text-sm px-5 py-2.5 me-2 mb-2">Xoá sản phẩm </button>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+            </div>
+            <!-- Form chỉnh sửa (ẩn mặc định) -->
+            <div id="editForm" class="hidden p-4 bg-gray-100 border rounded-lg">
+            <h3 class="text-lg font-bold">Chỉnh sửa sản phẩm</h3>
+        
+            <label class="block mt-2">Tên sản phẩm:</label>
+            <input id="editName" type="text" class="w-full px-3 py-2 border rounded-lg">
+        
+            <label class="block mt-2">Giá:</label>
+            <input id="editPrice" type="text" class="w-full px-3 py-2 border rounded-lg">
+        
+            <label class="block mt-2">Giá khuyến mãi:</label>
+            <input id="editPrice_KM" type="text" class="w-full px-3 py-2 border rounded-lg">
+        
+            <label class="block mt-2">Ảnh sản phẩm:</label>
+            <input id="editImageInput" type="file" class="w-full px-3 py-2 border rounded-lg">
+        
+            <!-- Hiển thị ảnh hiện tại -->
+            <div class="mt-2">
+                <img id="editImagePreview" class="w-32 h-32 object-cover border rounded-lg">
+            </div>
+        
+            <button id="updateBtn" class="mt-3 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">Cập nhật</button>
+            </div>
+            <!-- Bảng Nến -->
+            <div id="bangNen" class="hidden">
+                <h3>Danh sách Nến</h3>
+                <table border="1">
+                    <tr><th>Tên</th><th>Giá</th></tr>
+                    <tr><td>Nến thơm</td><td>150,000 VND</td></tr>
+                    <tr><td>Nến trang trí</td><td>100,000 VND</td></tr>
+                </table>
+            </div>
+        </div>
+        <!-- THỐNG KÊ -->
+        <div id="thongke" class="section hidden"> 
+            <h2>Thống Kê</h2>
+            <div class="chart-container">
+                <div class="chart-item">
+                    <div class="buttons">
+                        <button onclick="updatePieChart(1)" class="bg-blue-800 p-2 rounded-lg text-gray-200 mr-2">Quý 1</button>
+                        <button onclick="updatePieChart(2)" class="bg-blue-800 p-2 rounded-lg text-gray-200 mr-2">Quý 2</button>
+                        <button onclick="updatePieChart(3)" class="bg-blue-800 p-2 rounded-lg text-gray-200 mr-2">Quý 3</button>
+                    </div>
+                    <canvas id="customerChart"></canvas>
+                </div>
+                <canvas id="revenueChart"></canvas>
+                <canvas id="trafficChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            let customerCtx = document.getElementById('customerChart').getContext('2d');
+            let trafficCtx = document.getElementById('trafficChart').getContext('2d');
+            
+            const revenueData = {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: 'Doanh thu (triệu VND)',
+                    data: [50, 65, 80, 45, 90, 120, 100, 95, 110, 130, 140, 150],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            };
+            
+            const trafficData = {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: 'Lượng truy cập',
+                    data: [1000, 1200, 1500, 1400, 1600, 1800, 2000, 2100, 2300, 2500, 2700, 3000],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            };
+            
+            let customerData = {
+                labels: ["Khách hàng VIP", "Khách hàng mới", "Khách hàng thường"],
+                datasets: [{
+                    data: [30, 50, 20],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#ffce56']
+                }]
+            };
+            
+            new Chart(revenueCtx, { type: 'bar', data: revenueData, options: { responsive: true, scales: { y: { beginAtZero: true }}} });
+            new Chart(trafficCtx, { type: 'line', data: trafficData, options: { responsive: true, scales: { y: { beginAtZero: true }}} });
+            let customerChart = new Chart(customerCtx, { type: 'pie', data: customerData, options: { responsive: true } });
+            
+            function updatePieChart(quarter) {
+                const quarterData = {
+                    1: [40, 35, 25],
+                    2: [25, 45, 30],
+                    3: [20, 50, 30]
+                };
+                customerChart.data.datasets[0].data = quarterData[quarter];
+                customerChart.update();
+            }
+            window.updatePieChart = updatePieChart;
+        });
+    </script>
+    <!-- Xu ly show -->
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+    <!-- Script -->
+    <script src="../src/js/index.js"></script>
+    <!-- Flowbite -->
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.js" integrity="sha512-LThUFuq6Y8DTeSxG7VgJQu+3slKAhZ1u3z1EJdZESaVuQIEJ7TXC/DV8xNNEDFW01iWF4tUuzeC4RdiyrRPdRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- slick -->
+    <script src="../src/js/slick/slick.js"></script>
+    <script >
+        $('.banner__slick').slick({
+            dots: true,
+            infinite: true,
+            speed: 700,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+    </script>
+    <!--  -->
+    <!-- thư viện Jquery -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+        integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- CountUp JS -->
+        <!-- Code của hàm chạy số -->
+        <script src="./js/jquery.countup.js"></script>
+
+        <script>
+        $(".counter").countUp();
+        </script>
+        <!-- Chat-->
+        <script>
+            function toggleChat() {
+                var chatBox = document.getElementById("chatBox");
+                chatBox.classList.toggle("hidden");
+            }
+            function showAnswer(answerId) {
+                var answers = document.querySelectorAll('.hidden.mt-3.p-2.bg-gray-200.rounded');
+                answers.forEach(ans => ans.classList.add('hidden'));
+                document.getElementById(answerId).classList.remove("hidden");
+            }
+        </script>
+        
+        <!-- thông tin đăng nhập  -->
+        <script>
+            function handleLogin(event) {
+                event.preventDefault();
+                const username = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const errorMessage = document.getElementById("error-message");
+        
+                if (username === "admin" && password === "admin123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Admin.");
+                    window.location.href = "admin.html";
+                } else if (username === "user" && password === "user123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Người dùng.");
+                    window.location.href = "index.html";
+                } else {
+                    errorMessage.classList.remove("hidden");
+                }
+            }
+        
+            function clearError() {
+                document.getElementById("error-message").classList.add("hidden");
+            }
+        
+            function showResetForm() {
+                document.getElementById("reset-password-form").classList.remove("hidden");
+            }
+        
+            function handlePasswordReset(event) {
+                event.preventDefault();
+                const email = document.getElementById("reset-email").value;
+                alert("Yêu cầu đặt lại mật khẩu đã được gửi đến " + email);
+            }
+        </script>
+        <!-- popup -->
+        <script>
+            function showPopup(type) {
+                let content = '';
+                switch (type) {
+                    case 'phone':
+                        content = 'Số điện thoại liên hệ: 0912345678';
+                        break;
+                    case 'email':
+                        content = 'Email liên hệ: contact@email.com';
+                        break;
+                    case 'facebook':
+                        content = 'Trang Facebook: facebook.com/shopbanh';
+                        break;
+                    case 'instagram':
+                        content = 'Instagram: @shopbanh';
+                        break;
+                }
+                document.getElementById('popup-content').textContent = content;
+                document.getElementById('popup').classList.remove('hidden');
+            }
+        
+            function closePopup() {
+                document.getElementById('popup').classList.add('hidden');
+            }
+        </script>
+</body>
+</html>

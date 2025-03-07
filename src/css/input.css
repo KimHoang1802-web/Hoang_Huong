@@ -10,9 +10,18 @@
 }
 html, 
 body{
-    font-family: 'Playwrite VN', sans-serif;
-    font-weight: 100;
-    font-style: normal;
+    /* font-family: 'Cormorant', serif; */
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden
+}
+/* 
+    HEADER
+ */
+.header__img img{
+    @apply rounded-full w-6 h-6 lg:w-9 lg:h-9;
+    object-fit: cover;
+    margin: 0 auto; 
+    overflow: hidden
 }
 /* BANNER */
 .banner {
@@ -65,6 +74,16 @@ body{
     }
 }
 /* INTRODUCE */
+.introduce__text{
+    @apply text-center
+}
+.introduce__text h1{
+    @apply text-4xl lg:text-5xl font-bold lg:tracking-tight
+}
+.introduce__text h1 span{
+    @apply text-pink-500
+}
+
 .introduce__hh {
     display: grid;
     grid-template-columns: 1fr; 
@@ -96,7 +115,7 @@ body{
 }
 
 .banner__text {
-    @apply text-pink-500 my-5;
+    @apply text-black ;
 }
 
 @media (min-width: 768px) { 
@@ -113,10 +132,10 @@ body{
     @apply grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-5
 }
 .product__item img {
-    @apply w-full h-full object-cover;
+    @apply w-full h-full object-cover
 }
 .product__modal{
-    @apply grid grid-cols-2
+    @apply grid grid-cols-1 gap-1 lg:grid-cols-2
 }
 .product__item {
     @apply flex flex-col justify-between; 
@@ -140,16 +159,20 @@ body{
 .product__item{
     position: relative;
 }
+/*  */
 .product__detail {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 100px 40px;
+    padding: 10px;
     opacity: 0;
     transition: all ;
+    display: flex; /* Thêm flexbox */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center;
 }
 .product__item:hover .product__detail{
     opacity: 1;
@@ -158,9 +181,121 @@ body{
 .feedback__number{
     @apply flex text-center justify-around
 }
-.feedback__customer{
-    @apply grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-4
+.text{
+    @apply text-xl lg:text-4xl
 }
+
+.counter{
+    @apply text-xl lg:text-6xl my-2 lg:my-5
+}
+/* FEEDBACK DEMO */
+.feedback__title {
+    @apply text-center mt-24;
+}
+
+.feedback__title h1 {
+    @apply text-4xl lg:text-5xl font-bold lg:tracking-tight;
+}
+
+.feedback__title h1 span {
+    @apply text-pink-500;
+}
+
+.feedback__title p {
+    @apply text-lg mt-4;
+}
+
+.feedback__content::before {
+    content: "";
+    @apply absolute w-96 h-96 right-1/3 -top-10 
+    bg-pink-100 bg-opacity-80 blur-2xl rounded-full;
+}
+
+.feedback__content {
+    @apply mt-10 py-5 md:flex gap-10 relative overflow-visible;
+}
+
+.feedback__content::after {
+    content: "";
+    @apply absolute w-96 h-96 right-1/3 translate-x-2/3 top-10 z-0
+    bg-purple-100 bg-opacity-80 blur-2xl rounded-full;
+}
+
+.feedback__content .feedback__carousel__1 {
+    @apply flex flex-nowrap gap-10 overflow-x-auto  
+    w-auto p-5 shrink-0 items-stretch
+    snap-x snap-mandatory relative z-10;
+}
+
+.feedback__content .feedback__carousel__2 {
+    @apply hidden md:flex gap-10 p-5 shrink-0 relative z-10;
+}
+
+@media screen and (min-width: 768px) {
+    .feedback__content .feedback__carousel__1,
+    .feedback__content .feedback__carousel__2 
+    {
+    @apply animate-marquee;
+    }
+}
+
+.feedback__content .feedback__item {
+    @apply rounded-2xl bg-gray-50 bg-opacity-40
+    border-2 border-gray-300 border-opacity-30
+    transition-all hover:shadow-xl
+    shrink-0 snap-start scroll-m-6;
+    
+    width: 30rem;  /* Tăng chiều dài */
+    height: 12rem; /* Giảm chiều cao */
+    padding: 1.5rem; /* Giữ padding gọn gàng */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    text-align: center;
+}
+.feedback__content .feedback__carousel__1 {
+    overflow-x: auto;
+    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+
+.feedback__content .feedback__carousel__1::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn trên Chrome, Safari */
+}
+.feedback__content .feedback__carousel__2 {
+    overflow-x: auto;
+    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+
+.feedback__content .feedback__carousel__2::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn trên Chrome, Safari */
+}
+
+.feedback__carousel__1 {
+    display: flex;
+    gap: 2.5rem;
+    overflow-x: auto;
+    padding: 1.25rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1.5rem;
+    white-space: nowrap;
+    width: 100%;
+    justify-content: center; /* Căn giữa các phần tử */
+    align-items: center;
+}
+.feedback__carousel__1 {
+    overflow-x: scroll; /* Cho phép cuộn mà không cắt hình */
+    scrollbar-width: none;
+}
+
+.feedback__carousel__1::-webkit-scrollbar {
+    display: none;
+}
+.feedback__item p {
+    @apply text-lg md:text-xl text-black;
+}
+
+
 /* BLOG */
 .blog__content{
     @apply grid grid-cols-1 gap-2 lg:grid-cols-3
@@ -180,4 +315,331 @@ body{
 /* SẢN PHẨM LIÊN QUAN */
 .cake__title{
     @apply grid grid-cols-1 lg:grid-cols-4 gap-2 lg:gap-5
+}
+/* SHOP__CAKE */
+.shop__cake__1{
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-5
+}
+.shop__cake__right{
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-3
+}
+.shop__cake__2{
+    @apply grid grid-cols-1 lg:grid-cols-4 gap-2 lg:gap-5 mt-5
+}
+/* .shop__cake__left__gl{
+    @apply grid grid-rows-1 lg:grid-rows-2
+} */
+.shop__cake__button{
+    @apply flex mt-10 justify-center ml-6 items-center
+}
+/* PHAN_HOI */
+.phan__hoi__sp{
+    @apply mt-10 
+}
+
+/* PRODUCT DETAIL */
+/* .product__detail__left{
+    @apply grid grid-cols-1 lg:grid-cols-2
+} */
+
+.product__detail__cake{
+    @apply grid grid-cols-1 lg:grid-cols-4 lg:gap-5 gap-2
+}
+
+.product__detail__left1{
+    @apply grid grid-rows-2 grid-cols-2 lg:grid-rows-4
+}
+.product__detail__detail{
+    @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-5
+}
+/* TRADITIONAL*/
+.traditional{
+    @apply grid 
+}
+.traiditional__grid{
+    @apply mt-10 grid lg:grid-cols-2 grid-cols-1
+}
+.traditional__text{
+    @apply text-xs
+}
+.traditional__text, 
+.traditional__img img {
+    max-width: 100%; 
+    overflow: hidden; 
+}
+.traditional__img img{
+    @apply rounded-full w-80 h-80 my-5;
+    object-fit: cover;
+    margin: 0 auto; 
+    overflow: hidden
+}
+/* SAN PHAM */
+.san__pham__item img{
+    @apply rounded-full lg:w-56 lg:h-56 my-5 w-12 h-12
+    ;
+    object-fit: cover;
+    transition: all 0.25s;
+}
+.san__pham__title{
+    @apply grid grid-cols-2 lg:grid-cols-4 mt-2 relative gap-1
+}
+.san__pham__item{
+    position: relative;
+}
+/* 0 */
+.san__pham__detail{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(181, 235, 173, 0.257);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.san__pham__item:hover .san__pham__detail{
+    opacity: 1;
+}
+
+/* .san__pham__img:hover .san__pham__detail {
+    opacity: 1;
+    transform: translate(-50%, 50%) scale(1); 
+} */
+/* 1 */
+.san__pham__detail1{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(173, 209, 235, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail1{
+    opacity: 1;
+}
+/* 2 */
+.san__pham__detail2{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(217, 199, 179, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail2{
+    opacity: 1;
+}
+/* 3 */
+.san__pham__detail3{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(217, 189, 179, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail3{
+    opacity: 1;
+}
+/* 4 */
+.san__pham__detail4{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(179, 217, 205, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail4{
+    opacity: 1;
+}
+/* 5 */
+.san__pham__detail5{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(217, 179, 179, 0.36);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail5{
+    opacity: 1;
+}
+/* 6 */
+.san__pham__detail6{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(217, 193, 179, 0.366);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail6{
+    opacity: 1;
+}
+/* 7 */
+.san__pham__detail7{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(190, 183, 236, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail7{
+    opacity: 1;
+}
+/* 8 */
+.san__pham__detail11{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(113, 111, 112, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail11{
+    opacity: 1;
+}
+.san__pham__detail8{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(250, 178, 133, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail8{
+    opacity: 1;
+}
+
+/* 9 */
+.san__pham__detail9{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(243, 173, 173, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail9{
+    opacity: 1;
+}
+/* 10 */
+.san__pham__detail10{
+    @apply lg:w-56 lg:h-56 my-5 w-32 h-32 rounded-full;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+    background-color: rgba(233, 175, 216, 0.363);
+    padding: 10px;
+    opacity: 0;
+    transition: all ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.san__pham__item:hover .san__pham__detail10{
+    opacity: 1;
+}
+/* ĐƠN HÀNG ĐÃ MUA */
+.don__mua__thanh__cong__title{
+    @apply grid lg:grid-cols-2 grid-cols-1 lg:gap-3 gap-3;
+    
+}
+.thanh__cong__up {
+    @apply grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg gap-3; 
+}
+
+.thanh__cong__up img {
+    @apply w-full h-auto rounded-lg; 
+    object-fit: cover;
+}
+
+.thanh__cong__up div:last-child {
+    @apply col-span-2; 
+}
+.cake__title__1{
+    @apply grid grid-cols-1 lg:grid-cols-4 lg:gap-3 gap-1
+}
+.cake__title__2{
+    @apply grid grid-cols-1 lg:grid-cols-4 lg:gap-3 gap-1
+}
+.text__cake{
+    text-decoration: line-through;
+    color: #a1a1a1
+}
+
+/* FOOTER */
+.footer__img img{
+    @apply rounded-full w-20 h-20 my-5;
+    object-fit: cover;
+    margin: 0 auto; 
+    overflow: hidden
 }

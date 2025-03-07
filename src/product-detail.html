@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAKE BAKERY AND GIFT</title>
+    <!-- Font Aw -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../src/js/slick/slick.css">
+    <link rel="stylesheet" href="../src/js/slick/slick-theme.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- GG -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!--  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <!-- Animate -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--  -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/output.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="">
+        <nav class="bg-body w-full z-50 fixed border-pink-200">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <div class="header__img">
+                    <img src="../src/img/banh23.jpg" alt="">
+                </div>
+                <span class=" self-center  whitespace-nowrap text-pink-600 font-black text-lg">H&H </span>
+            </a>
+            
+            <!--  -->
+            
+                <div class="flex md:order-2 items-center space-x-4">
+                    <button type="button" data-dropdown-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" class="md:hidden text-pink-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5 me-1">
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                    </svg>
+                    <span class="sr-only">Search</span>
+                    </button>
+                    <div class="relative hidden md:block">
+                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        
+                        <span class="sr-only">Search icon</span>
+                    </div>
+                    <input type="text" id="search-navbar" class="block w-full p-2 ps-10 text-sm text-pink-900 border border-pink-300 rounded-lg bg-colors-peach focus:ring-pink-500 focus:border-pink-500 " placeholder="Tìm kiếm">
+                    </div>
+                    <div class="flex items-center ">
+                        <!-- Gio hang -->
+                        <a href="../src/giohang.html"><i class="fa fa-shopping-cart text-2xl text-pink-500 mx-2"></i></a>
+                        <!-- dang nhap -->
+                    
+                        <!-- Modal toggle -->
+                        <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="block text-white  focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg px-5 py-2.5 text-center " type="button">
+                            <i class="fa fa-user-circle text-2xl text-pink-500"></i>
+                        </button>
+                        
+                        <!-- Main modal -->
+                        <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                <!-- Modal content -->
+                                <div class="relative bg-white rounded-lg shadow">
+                                    <!-- Modal header -->
+                                    <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+                                        <h3 class="text-xl font-semibold text-pink-900 ">
+                                            ĐĂNG KÝ / ĐĂNG NHẬP
+                                        </h3>
+                                        <button type="button" class="end-2.5 text-pink-400 bg-transparent hover:bg-pink-200 hover:text-pink-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center " data-modal-hide="authentication-modal">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                            </svg>
+                                            <span class="sr-only">Close modal</span>
+                                        </button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="p-4 md:p-5">
+                                        <form class="space-y-4" onsubmit="return handleLogin(event)">
+                                            <div>
+                                                <label for="email" class="block mb-2 text-sm font-medium text-pink-900">Tên đăng nhập</label>
+                                                <input type="text" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5" placeholder="Nhập tên đăng nhập" required oninput="clearError()" />
+                                            </div>
+                                            <div>
+                                                <label for="password" class="block mb-2 text-sm font-medium text-pink-900">Mật khẩu</label>
+                                                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-pink-50 border border-pink-300 text-pink-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5" required oninput="clearError()" />
+                                            </div>
+                                            <button type="submit" class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Đăng nhập</button>
+                                            <p id="error-message" class="text-red-500 text-sm mt-2 hidden">Sai tài khoản hoặc mật khẩu. Vui lòng thử lại.</p>
+                                            <a href="#" onclick="showResetForm()" class="text-sm text-pink-700 hover:underline">Quên mật khẩu?</a>
+                                        </form>
+                                        
+                                        <div id="reset-password-form" class="hidden mt-4">
+                                            <h3 class="text-lg font-semibold text-pink-900">Lấy lại mật khẩu</h3>
+                                            <form onsubmit="return handlePasswordReset(event)">
+                                                <div>
+                                                    <label for="reset-email" class="block mb-2 text-sm font-medium text-pink-900">Email đăng ký</label>
+                                                    <input type="email" id="reset-email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5" placeholder="Nhập email của bạn" required />
+                                                </div>
+                                                <button type="submit" class="w-full text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2">Gửi yêu cầu</button>
+                                            </form>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-dropdown" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                        </svg>
+                    </button>
+                </div>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+                <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-pink-400 rounded-lg bg-body md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-colors-peach text-xl">
+                <li>
+                    <a href="../src/index.html" class="block py-2 px-3 text-pink-500 rounded md:bg-transparent md:text-pink-700 hover:text-rose-500 font-bold md:p-0 " aria-current="page">Trang chủ</a>
+                </li>
+                <li>
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 md:w-auto ">Cửa Hàng <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg></button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar" class="z-50 hidden  font-normal bg-pink-200 divide-y divide-pink-100 rounded-lg shadow w-44 ">
+                        <ul class="py-2 text-sm text-pink-500 " aria-labelledby="dropdownLargeButton">
+                            <li>
+                            <a href="../src/cake.html" class="block px-4 py-2 hover:bg-white 
+                            hover:text-pink-700">Bánh</a>
+                            </li>
+                            <li>
+                            <a href="../src/nen.html" class="block px-4 py-2 hover:bg-white 
+                            hover:text-pink-700">Nến</a>
+                            </li>
+                            <li>
+                            <a href="#" class="block px-4 py-2 hover:bg-white 
+                            hover:text-pink-700">Khác</a>
+                            </li>
+                        </ul>
+                        <div class="py-1">
+                            <a href="#" class="block px-4 py-2 text-sm text-pink-500 hover:bg-white 
+                            hover:text-pink-700">Khuyến mãi</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="../src/vechungtoi.html" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 ">Về chúng tôi</a>
+                </li>
+                <li>
+                    <a href="../src/donhang.html" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 ">Đơn đã mua</a>
+                </li>
+                <li>
+                    <a href="../src/lienhe.html" class="block py-2 px-3 text-pink-400 rounded hover:bg-pink-100 md:hover:bg-transparent md:border-0 md:hover:text-pink-700 md:p-0 dark:text-white">Liên hệ</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </div>
+    <!-- BANNER__CAKE -->
+    <section class="banner__shop">
+        <div class="">
+            <section class="bg-center bg-no-repeat bg-[url('/src/img/shop__cake.jpg')] bg-gray-200 bg-blend-multiply">
+                <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+                    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-tight text-white md:text-5xl lg:text-6xl">CỬA HÀNG > BÁNH </h1>
+                    <p class="mb-8 mt-8 text-lg font-thin text-white lg:text-xl sm:px-16 lg:px-48">
+                        
+                    </p>
+                    <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
+                        <a href="../src/lienhe.html" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-pink-700 hover:bg-white hover:text-pink-800 focus:ring-4 focus:ring-pink-300 ">
+                            LIÊN HỆ 
+                            <svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                        <a href="../src/cake.html" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 sm:ms-4 text-base font-medium text-center text-white rounded-lg border border-pink-100 hover:bg-pink-100 focus:ring-4 focus:ring-gray-400">
+                            CỬA HÀNG
+                        </a>  
+                    </div>
+                    <br>
+                        <br>
+                        <br>
+                        <br><br><br><br><br><br>
+                </div>
+                
+            </section>
+        </div>
+    </section>
+    <!-- PRODUCT DETAIL -->
+    <section class="product__detail1">
+        <div class="container">
+            <!-- CHI TIẾT SẢN PHẨM  -->
+        <div class="product__detail__detail mt-10">
+            <!-- trai -->
+            <div class="product__detail__left ">
+                <div class="product__detail__item1 ">
+                    <img src="../src/img/banh16.jpg" alt="" class="w-96 h-96 object-cover ">
+                </div>
+            </div>
+            <!-- phai -->
+            <div class="product__detail__right">
+                <h2 class="text-2xl text-brown-600
+                lg:text-4xl lg:font-bold">BÁNH DÂU TÂY</h2>
+                <p class="text-xl text-brown-600 font-thin">225.000</p>
+                <div class="flex mb-10">
+                    <i class="fa fa-star text-yellow-400 text-lg"></i>
+                    <i class="fa fa-star text-yellow-400 text-lg"></i>
+                    <i class="fa fa-star text-yellow-400 text-lg"></i>
+                    <i class="fa fa-star text-yellow-400 text-lg"></i>
+                    <i class="fa fa-star-half-alt text-yellow-400 text-lg"></i>
+                </div>
+                <p class="text-xl text-brown-600 font-thin mb-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nihil molestiae iusto, aut, voluptatem ea consequuntur eius ad laudantium tenetur quisquam! Laudantium animi laboriosam maiores eius perspiciatis commodi. Numquam.</p>
+                <div class="flex gap-6 mb-10">
+                    <div class="flex items-center">
+                        <form class="max-w-xs mx-auto">
+                            <label for="quantity-input" class="block mb-2 text-sm font-medium text-gray-900 ">Chọn số lượng sản phẩm</label>
+                            <div class="relative flex items-center max-w-[8rem]">
+                                <button type="button" id="decrement-button" data-input-counter-decrement="quantity-input" class="bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-3 h-11 focus:ring-gray-100 focus:ring-2 focus:outline-none">
+                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                                    </svg>
+                                </button>
+                                <input type="text" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-11 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="999" required />
+                                <button type="button" id="increment-button" data-input-counter-increment="quantity-input" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-3 h-11 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-3 h-3 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p id="helper-text-explanation" class="mt-2 text-sm text-gray-500 dark:text-gray-400">Chọn tối đa 5 sản phẩm(Nếu nhiều hơn xin liên hệ).</p>
+                        </form>
+                        <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-300 hover:text-brown-700 focus:z-10 focus:ring-4 focus:ring-gray-100 font-bold">THÊM VÀO GIỎ HÀNG <i class="fa fa-shopping-cart"></i></button>
+                    </div>
+                    <div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Rw-->
+        <div class="conatiner  my-10">
+            <div class="mb-4 border-b border-gray-200 ">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+                    <li class="me-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Mô tả sản phẩm</button>
+                    </li>
+                    <li class="me-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 " id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Chính sách bảo hành và hoàn trả</button>
+                    </li>
+                    <li class="me-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 " id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Thời gian giao hàng <i class="fa fa-shipping-fast"></i></button>
+                    </li>
+                    <li role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 " id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab" aria-controls="contacts" aria-selected="false">Đánh giá (5)</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="default-tab-content">
+                <div class="hidden p-4 rounded-lg bg-gray-50 " id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <p class="text-sm text-gray-500 ">Bánh Dâu Tây là một món tráng miệng ngọt ngào, kết hợp giữa lớp bánh mềm mịn và hương vị dâu tây tươi ngon. Lớp vỏ bánh được làm từ bột mì cao cấp, trứng, và bơ, mang đến độ mềm xốp hoàn hảo. Lớp kem dâu tây bên trong có vị ngọt thanh, béo ngậy và thơm mùi dâu tây tươi tự nhiên, kết hợp với một chút chua nhẹ từ quả dâu tươi, tạo nên một trải nghiệm hương vị cân bằng tuyệt vời.
+
+                        Bánh được trang trí đẹp mắt với những lát dâu tây tươi rói trên bề mặt, cùng một lớp kem mịn màng phủ lên trên, mang lại màu sắc hấp dẫn và dễ dàng chinh phục mọi tín đồ yêu thích đồ ngọt.
+                        
+                        Được làm thủ công từ nguyên liệu tự nhiên, không chất bảo quản, bánh Dâu Tây mang đến sự tươi mới, tự nhiên và hương vị đậm đà. Đây là sự lựa chọn tuyệt vời cho những ai yêu thích sự ngọt ngào, thanh mát và tinh tế trong từng miếng bánh.</p> <br>
+                <p class="text-sm text-gray-500 dark:text-gray-400">	•	Hương vị dâu tây tự nhiên, ngọt ngào và thanh mát. <br>
+                    •	Bánh mềm mịn, lớp kem dâu tây béo ngậy. <br>
+                    •	Trang trí đẹp mắt với dâu tây tươi và lớp kem mịn. <br>
+                    •	Nguyên liệu tự nhiên, không sử dụng chất bảo quản.</p> <br>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        Thành phần: <br>
+                        	Bột mì,
+                        	Trứng,
+                        	Bơ ,
+                        	Đường,
+                        	Sữa,
+                        	Kem tươi (whipping cream),
+                        	Dâu tây tươi,
+                        	Gelatin (hoặc bột agar),
+                        	Vanilla extract,
+                    </p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 " id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Chính sách hoàn trả bánh: <br>
+                        1.	Điều kiện hoàn trả: <br>
+                        •	Bánh sẽ chỉ được hoàn trả nếu có lỗi từ phía cửa hàng, như bánh bị hư hỏng, sai đơn hàng hoặc không đạt chất lượng theo mô tả. <br>
+                        •	Không chấp nhận hoàn trả đối với bánh đã được giao và đã được khách hàng sử dụng hoặc cắt ra. <br>
+                        2.	Thời gian hoàn trả: <br>
+                        •	Khách hàng có thể yêu cầu hoàn trả trong vòng 2 giờ sau khi nhận bánh (đối với trường hợp bánh bị hư hỏng hoặc sai đơn hàng). <br>
+                        3.	Quy trình hoàn trả: <br>
+                        •	Khách hàng cần liên hệ ngay với cửa hàng qua điện thoại hoặc email để thông báo về vấn đề. <br>
+                        •	Cửa hàng sẽ yêu cầu khách hàng cung cấp hình ảnh của sản phẩm để xác nhận tình trạng hư hỏng. <br>
+                        •	Sau khi xác minh, cửa hàng sẽ hoàn trả tiền hoặc gửi lại sản phẩm mới (tuỳ theo yêu cầu của khách hàng). <br>
+                        4.	Chi phí hoàn trả: <br>
+                        •	Nếu bánh bị lỗi do cửa hàng, khách hàng sẽ không phải chịu bất kỳ chi phí nào. <br>
+                        •	Khách hàng sẽ chịu chi phí vận chuyển nếu yêu cầu hoàn trả vì lý do cá nhân (không hài lòng với sản phẩm, thay đổi ý định mua hàng, v.v.).</p> <br>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            Chính sách hoàn trả nến: <br>
+                            1.	Điều kiện hoàn trả: <br>
+                            •	Nến có thể hoàn trả nếu sản phẩm bị hư hỏng, bị lỗi do sản xuất, hoặc không giống mô tả trên website (màu sắc, mùi hương, kích thước). <br>
+                            •	Nến phải còn nguyên vẹn, chưa được sử dụng và không bị hư hỏng do cách sử dụng của khách hàng. <br>
+                            2.	Thời gian hoàn trả: <br>
+                            •	Khách hàng có thể yêu cầu hoàn trả trong vòng 7 ngày kể từ ngày nhận sản phẩm. <br>
+                            3.	Quy trình hoàn trả: <br>
+                            •	Khách hàng cần liên hệ với cửa hàng và cung cấp thông tin đơn hàng và hình ảnh sản phẩm. <br>
+                            •	Cửa hàng sẽ xác nhận tình trạng sản phẩm và hướng dẫn khách hàng gửi lại hàng nếu cần thiết. <br>
+                            •	Sau khi kiểm tra và xác nhận, cửa hàng sẽ hoàn lại tiền hoặc gửi sản phẩm thay thế. <br>
+                            4.	Chi phí hoàn trả: <br>
+                            •	Nếu nến bị lỗi hoặc không đúng mô tả, cửa hàng sẽ chịu chi phí hoàn trả. <br>
+                            •	Nếu khách hàng muốn trả lại sản phẩm vì lý do cá nhân (không thích mùi, không vừa ý, v.v.), khách hàng sẽ phải chịu chi phí vận chuyển. <br>
+                        </p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 " id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                    <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+                        <li class="flex items-center text-blue-600  space-x-2.5 rtl:space-x-reverse">
+                            <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 ">
+                                1
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Xác nhận đơn hàng</h3>
+                                <p class="text-sm">Trong ngày</p>
+                            </span>
+                        </li>
+                        <li class="flex items-center text-gray-500  space-x-2.5 rtl:space-x-reverse">
+                            <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                2
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Chuẩn bị hàng</h3>
+                                <p class="text-sm">Trong ngày</p>
+                            </span>
+                        </li>
+                        <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                            <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                                3
+                            </span>
+                            <span>
+                                <h3 class="font-medium leading-tight">Giao hàng (Trong khu vực thành phố Cần Thơ)</h3>
+                                <p class="text-sm">Trong ngày</p>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 " id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+                        
+                        <div class="flex items-center gap-4">
+                            <img class="w-10 h-10 rounded-full" src="../src/img/khachhang1.jpg" alt="">
+                            <div class="font-medium dark:text-white">
+                                <div>Jese Leos</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                                <div class="flex">
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img class="w-10 h-10 rounded-full" src="../src/img/khachhang2.jpg" alt="">
+                            <div class="font-medium dark:text-white">
+                                <div>Jese Leos</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                                <div class="flex">
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img class="w-10 h-10 rounded-full" src="../src/img/khachhang3.jpg" alt="">
+                            <div class="font-medium dark:text-white">
+                                <div>Jese Leos</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                                <div class="flex">
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <img class="w-10 h-10 rounded-full" src="../src/img/khachhang4.jpg" alt="">
+                            <div class="font-medium dark:text-white">
+                                <div>Jese Leos</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                                <div class="flex">
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star text-yellow-400 text-xs"></i>
+                                    <i class="fa fa-star-half-alt text-yellow-400 text-xs"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="text-lg mt-10 text-gray-500">ĐÁNH GIÁ CỦA BẠN</h3>
+                        <form>
+                            <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50  ">
+                                <div class="flex items-center justify-between px-3 py-2 border-b ">
+                                    <div class="flex flex-wrap items-center divide-gray-200 sm:divide-x sm:rtl:divide-x-reverse ">
+                                        <div class="flex items-center space-x-1 rtl:space-x-reverse sm:pe-4">
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
+                                                    <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"/>
+                                                </svg>
+                                                <span class="sr-only">Attach file</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                                                    <path d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"/>
+                                                </svg>
+                                                <span class="sr-only">Embed map</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                                                    <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
+                                                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
+                                                </svg>
+                                                <span class="sr-only">Upload image</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                                                    <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z"/>
+                                                    <path d="M14.067 0H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.933-2ZM6.709 13.809a1 1 0 1 1-1.418 1.409l-2-2.013a1 1 0 0 1 0-1.412l2-2a1 1 0 0 1 1.414 1.414L5.412 12.5l1.297 1.309Zm6-.6-2 2.013a1 1 0 1 1-1.418-1.409l1.3-1.307-1.295-1.295a1 1 0 0 1 1.414-1.414l2 2a1 1 0 0 1-.001 1.408v.004Z"/>
+                                                </svg>
+                                                <span class="sr-only">Format code</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM13.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm-7 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm3.5 9.5A5.5 5.5 0 0 1 4.6 11h10.81A5.5 5.5 0 0 1 10 15.5Z"/>
+                                                </svg>
+                                                <span class="sr-only">Add emoji</span>
+                                            </button>
+                                        </div>
+                                        <div class="flex flex-wrap items-center space-x-1 rtl:space-x-reverse sm:ps-4">
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 21 18">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.5 3h9.563M9.5 9h9.563M9.5 15h9.563M1.5 13a2 2 0 1 1 3.321 1.5L1.5 17h5m-5-15 2-1v6m-2 0h4"/>
+                                                </svg>
+                                                <span class="sr-only">Add list</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M18 7.5h-.423l-.452-1.09.3-.3a1.5 1.5 0 0 0 0-2.121L16.01 2.575a1.5 1.5 0 0 0-2.121 0l-.3.3-1.089-.452V2A1.5 1.5 0 0 0 11 .5H9A1.5 1.5 0 0 0 7.5 2v.423l-1.09.452-.3-.3a1.5 1.5 0 0 0-2.121 0L2.576 3.99a1.5 1.5 0 0 0 0 2.121l.3.3L2.423 7.5H2A1.5 1.5 0 0 0 .5 9v2A1.5 1.5 0 0 0 2 12.5h.423l.452 1.09-.3.3a1.5 1.5 0 0 0 0 2.121l1.415 1.413a1.5 1.5 0 0 0 2.121 0l.3-.3 1.09.452V18A1.5 1.5 0 0 0 9 19.5h2a1.5 1.5 0 0 0 1.5-1.5v-.423l1.09-.452.3.3a1.5 1.5 0 0 0 2.121 0l1.415-1.414a1.5 1.5 0 0 0 0-2.121l-.3-.3.452-1.09H18a1.5 1.5 0 0 0 1.5-1.5V9A1.5 1.5 0 0 0 18 7.5Zm-8 6a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/>
+                                                </svg>
+                                                <span class="sr-only">Settings</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M18 2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM2 18V7h6.7l.4-.409A4.309 4.309 0 0 1 15.753 7H18v11H2Z"/>
+                                                    <path d="M8.139 10.411 5.289 13.3A1 1 0 0 0 5 14v2a1 1 0 0 0 1 1h2a1 1 0 0 0 .7-.288l2.886-2.851-3.447-3.45ZM14 8a2.463 2.463 0 0 0-3.484 0l-.971.983 3.468 3.468.987-.971A2.463 2.463 0 0 0 14 8Z"/>
+                                                </svg>
+                                                <span class="sr-only">Timeline</span>
+                                            </button>
+                                            <button type="button" class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 ">
+                                                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"/>
+                                                    <path d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                                                </svg>
+                                                <span class="sr-only">Download</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="button" data-tooltip-target="tooltip-fullscreen" class="p-2 text-gray-500 rounded cursor-pointer sm:ms-auto hover:text-gray-900 hover:bg-gray-100 ">
+                                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 19 19">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 1h5m0 0v5m0-5-5 5M1.979 6V1H7m0 16.042H1.979V12M18 12v5.042h-5M13 12l5 5M2 1l5 5m0 6-5 5"/>
+                                        </svg>
+                                        <span class="sr-only">Full screen</span>
+                                    </button>
+                                    <div id="tooltip-fullscreen" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                                        Show full screen
+                                        <div class="tooltip-arrow" data-popper-arrow></div>
+                                    </div>
+                                </div>
+                                <div class="px-4 py-2 bg-white rounded-b-lg dark:bg-gray-800">
+                                    <label for="editor" class="sr-only">Publish post</label>
+                                    <textarea id="editor" rows="8" class="block w-full px-0 text-sm text-gray-800 bg-white border-0 " placeholder="Write an article..." required ></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                                Gửi
+                            </button>
+                        </form>
+                </div>
+            </div>
+        </div>
+        <!-- Sản Phẩm Liên Quan -->
+        <h3 class="text-brown-500 text-center text-xl lg:text-3xl">SẢN PHẨM LIÊN QUAN</h3>
+        <div class="product__detail__cake">
+            <!-- Item 1  -->
+            <div class="shop__cake__item">
+                <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                    <a href="#">
+                        <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh16.jpg" alt="product image" />
+                    </a>
+                    <div class="px-5 pb-5">
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Dâu Cây</h5>
+                        </a>
+                        <div class="flex items-center mt-2.5 mb-5">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-brown-900 ">225.000</span>
+                            <a href="../src/product-detail.html"><i class="fa fa-shopping-cart text-brown-900"></i></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 2  -->
+            <div class="shop__cake__item">
+                <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                    <a href="#">
+                        <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh15.jpg" alt="product image" />
+                    </a>
+                    <div class="px-5 pb-5">
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Trái Cây</h5>
+                        </a>
+                        <div class="flex items-center mt-2.5 mb-5">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                            <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-brown-900 ">215.000</span>
+                            <i class="fa fa-shopping-cart text-brown-900"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 3  -->
+            <div class="shop__cake__item">
+                <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                    <a href="#">
+                        <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh17.jpg" alt="product image" />
+                    </a>
+                    <div class="px-5 pb-5">
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Bánh Matcha</h5>
+                        </a>
+                        <div class="flex items-center mt-2.5 mb-5">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                            </div>
+                            <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-brown-900 ">315.000</span>
+                            <i class="fa fa-shopping-cart text-brown-900"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Item 4  -->
+            <div class="shop__cake__item">
+                <div class="w-full max-w-sm bg-brown-100 border border-gray-200 rounded-lg shadow ">
+                    <a href="#">
+                        <img class="p-8 rounded-t-lg h-80 object-cover w-full" src="../src/img/banh20.jpg" alt="product image" />
+                    </a>
+                    <div class="px-5 pb-5">
+                        <a href="#">
+                            <h5 class="text-xl font-semibold tracking-tight text-brown-500 ">Macaron</h5>
+                        </a>
+                        <div class="flex items-center mt-2.5 mb-5">
+                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star text-yellow-400"></i>
+                                <i class="fa fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                            <span class="bg-brown-100 text-brown-800 text-xs font-semibold px-2.5 py-0.5 rounded  ms-3">5.0</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-bold text-brown-900 ">215.000</span>
+                            <i class="fa fa-shopping-cart text-brown-900"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </section>
+    <!-- FOOTER -->
+    <div class="">
+        <footer class="footer bg-body">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-1">
+                <div>
+                    <div class="footer__img mt-5">
+                        <img src="../src/img/banh23.jpg" alt="">
+                        
+                        <p class="text-center" onclick="showPopup('phone')">
+                            <i class="fa fa-phone"></i>
+                            <span class="ml-3 text-xl">0912345678</span>
+                        </p>
+                    
+                        <p class="text-center" onclick="showPopup('email')">
+                            <i class="fa fa-envelope"></i>
+                            <span class="ml-3 text-xl">contact@email.com</span>
+                        </p>
+                    
+                        <p class="text-center" onclick="showPopup('facebook')">
+                            <i class="fab fa-facebook-f"></i>
+                            <span class="ml-3 text-xl">facebook.com/shopbanh</span>
+                        </p>
+                    
+                        <p class="text-center" onclick="showPopup('instagram')">
+                            <i class="fab fa-instagram"></i>
+                            <span class="ml-3 text-xl">@shopbanh</span>
+                        </p>
+                    </div>
+                    <!-- popup -->
+                <div id="popup" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <div class="bg-white p-5 rounded-lg shadow-lg">
+                        <p id="popup-content" class="text-lg"></p>
+                        <button onclick="closePopup()" class="mt-3 px-4 py-2 bg-red-500 text-white rounded">Đóng</button>
+                    </div>
+                </div>
+                </div>
+                <div class="mt-5">
+                    <h3 class="text-black font-bold text-xl text-center">Đăng ký nhận tin</h3>
+                    <p class="text-gray-500 text-center text-lg">Đăng ký nhận thông tin khuyến mãi và món ăn mới</p>
+                    <form class="mt-5 max-w-sm mx-auto">   
+                        <label for="search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                        <div class="relative">
+                            <input type="search" id="search" class="block w-full p-2 ps-8 text-sm text-gray-900 border border-gray-300 rounded-md bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Email của bạn" required />
+                            <button type="submit" class="text-white absolute end-2 bottom-2 bg-pink-700 hover:bg-pink-800 focus:ring-2 focus:outline-none focus:ring-pink-300 font-medium rounded-md text-sm px-3 py-1">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+                <div></div>
+            </div>
+        </footer>
+    </div>
+    <!-- MẠNG XÃ HỘI -->
+    <div class="grid grid-cols-2">
+        <!-- 1. -->
+        <div data-dial-init class="fixed end-6 bottom-16 group">
+            <div id="speed-dial-menu-default" class="flex flex-col items-center hidden mb-4 space-y-2">
+                <button type="button" data-tooltip-target="tooltip-share" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-brown-500 hover:text-brown-900 bg-white rounded-full border border-brown-200 shadow-sm hover:bg-brown-50 focus:ring-4 focus:ring-brown-300 focus:outline-none ">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <span class="sr-only">Share</span>
+                </button>
+                <div id="tooltip-share" role="tooltip" class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-pink-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-pink-700">
+                    Messenger
+                    <div class="tooltip-arrow" data-popper-arrow>
+                    </div>
+                </div>
+                <button type="button" data-tooltip-target="tooltip-print" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-brown-500 hover:text-brown-900 bg-white rounded-full border border-brown-200  hover:bg-brown-50 focus:ring-4 focus:ring-brown-300 focus:outline-none ">
+                    <i class="fab fa-facebook"></i>
+                    <span class="sr-only">Print</span>
+                </button>
+                <div id="tooltip-print" role="tooltip" class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-pink-900 rounded-lg shadow-sm opacity-0 tooltip">
+                    Facebook
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                <button type="button" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-brown-500 hover:text-brown-900 bg-white rounded-full border border-brown-200 dark:border-brown-600 shadow-sm hover:bg-brown-50  focus:ring-4 focus:ring-brown-300 focus:outline-none ">
+                    <i class="fab fa-instagram"></i>
+                    <span class="sr-only">Download</span>
+                </button>
+                <div id="tooltip-download" role="tooltip" class="absolute z-10 invisible inline-block w-auto px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-pink-900 rounded-lg shadow-sm opacity-0 tooltip ">
+                    Instagram
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>
+                
+            </div>
+            <button type="button" data-dial-toggle="speed-dial-menu-default" aria-controls="speed-dial-menu-default" aria-expanded="false" class="flex items-center justify-center text-white bg-pink-700 rounded-full w-14 h-14 hover:bg-pink-800 dark:bg-pink-600 dark:hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 focus:outline-none dark:focus:ring-pink-800">
+                <svg class="w-5 h-5 transition-transform group-hover:rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                </svg>
+                <span class="sr-only">Open actions menu</span>
+            </button>
+        </div>
+        <!-- 2. -->
+        <button class="fixed bottom-5 right-5 bg-pink-700 text-white px-4 py-2 rounded-full shadow-lg" onclick="toggleChat()">Chat Hỗ Trợ</button>
+        <div class="hidden fixed bottom-20 right-5 w-80 bg-white border border-gray-300 shadow-lg rounded-lg overflow-hidden" id="chatBox">
+        <div class="bg-pink-500 text-white p-3 text-center">Hỗ Trợ Trực Tuyến Nhanh </div>
+        <div class="p-4">
+            <div class="bg-gray-100 p-2 my-2 rounded cursor-pointer" onclick="showAnswer('answer1')">Làm thế nào để đặt bánh?</div>
+            <div class="bg-gray-100 p-2 my-2 rounded cursor-pointer" onclick="showAnswer('answer2')">Chính sách hoàn trả đơn hàng bánh là gì</div>
+            <div class="bg-gray-100 p-2 my-2 rounded cursor-pointer" onclick="showAnswer('answer3')">Tôi có thể thanh toán bằng cách nào?</div>
+            <div class="hidden mt-3 p-2 bg-gray-200 rounded" id="answer1">Bạn có thể liên hệ đặt bánh ở phần liên hệ 
+                <a href="../src/lienhe.html">
+                    <button type="button" class="text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 ">
+                        <i class="fa fa-file-contract mr-1"></i> 
+                        LIÊN HỆ
+                        </button>
+                </a>
+            </div>
+            <div class="hidden mt-3 p-2 bg-gray-200 rounded" id="answer2">Chính Sách Hoàn Trả 
+                <br>
+                1.	Chỉ áp dụng khi sản phẩm bị lỗi, hỏng, hoặc giao sai.
+                <br>
+                2.	Yêu cầu hoàn trả trong vòng 24 giờ sau khi nhận hàng.
+                <br>
+                3.	Không hỗ trợ hoàn trả nếu bánh đã dùng hoặc bảo quản sai cách.
+                <br>
+                4.	Liên hệ cửa hàng kèm hình ảnh để được xác nhận.
+                <br>
+                5.	Đổi bánh mới hoặc hoàn tiền nếu đủ điều kiện.
+                <br>
+                6.	Hoàn tiền trong 3-5 ngày qua phương thức thanh toán ban đầu
+            </div>
+            <div class="hidden mt-3 p-2 bg-gray-200 rounded" id="answer3">Chúng tôi hỗ trợ thanh toán qua thẻ tín dụng, thẻ ghi nợ và ví điện tử.
+                <div >
+                    <button type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-800 dark:bg-white dark:border-gray-700 dark:text-gray-900 dark:hover:bg-gray-200 me-2 mb-2">
+                        <svg aria-hidden="true" class="w-10 h-3 me-2 -ms-1" viewBox="0 0 660 203" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M233.003 199.762L266.362 4.002H319.72L286.336 199.762H233.003V199.762ZM479.113 8.222C468.544 4.256 451.978 0 431.292 0C378.566 0 341.429 26.551 341.111 64.604C340.814 92.733 367.626 108.426 387.865 117.789C408.636 127.387 415.617 133.505 415.517 142.072C415.384 155.195 398.931 161.187 383.593 161.187C362.238 161.187 350.892 158.22 333.368 150.914L326.49 147.803L319.003 191.625C331.466 197.092 354.511 201.824 378.441 202.07C434.531 202.07 470.943 175.822 471.357 135.185C471.556 112.915 457.341 95.97 426.556 81.997C407.906 72.941 396.484 66.898 396.605 57.728C396.605 49.591 406.273 40.89 427.165 40.89C444.611 40.619 457.253 44.424 467.101 48.39L471.882 50.649L479.113 8.222V8.222ZM616.423 3.99899H575.193C562.421 3.99899 552.861 7.485 547.253 20.233L468.008 199.633H524.039C524.039 199.633 533.198 175.512 535.27 170.215C541.393 170.215 595.825 170.299 603.606 170.299C605.202 177.153 610.098 199.633 610.098 199.633H659.61L616.423 3.993V3.99899ZM551.006 130.409C555.42 119.13 572.266 75.685 572.266 75.685C571.952 76.206 576.647 64.351 579.34 57.001L582.946 73.879C582.946 73.879 593.163 120.608 595.299 130.406H551.006V130.409V130.409ZM187.706 3.99899L135.467 137.499L129.902 110.37C120.176 79.096 89.8774 45.213 56.0044 28.25L103.771 199.45L160.226 199.387L244.23 3.99699L187.706 3.996" fill="#0E4595"/><path d="M86.723 3.99219H0.682003L0 8.06519C66.939 24.2692 111.23 63.4282 129.62 110.485L110.911 20.5252C107.682 8.12918 98.314 4.42918 86.725 3.99718" fill="#F2AE14"/></svg>
+                        Pay with Visa
+                    </button>
+                    <button type="button" class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2">
+                        <svg aria-hidden="true" class="h-4 me-2 -ms-1 w-7" viewBox="0 0 601 360" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M359.01 179.504C359.01 278.647 278.639 359.004 179.5 359.004C80.361 359.004 0 278.643 0 179.504C0 80.3709 80.362 0.00390625 179.5 0.00390625C278.637 0.00390625 359.01 80.3749 359.01 179.504Z" fill="#D9222A"/><path d="M420.489 0C374.11 0 331.846 17.596 299.989 46.467C293.499 52.356 287.441 58.704 281.864 65.463H318.131C323.096 71.5 327.667 77.85 331.816 84.475H268.181C264.354 90.597 260.9 96.944 257.839 103.483H342.152C345.046 109.668 347.583 116.013 349.753 122.487H250.24C248.15 128.721 246.408 135.067 245.023 141.495H354.963C357.652 153.985 359.008 166.726 359.005 179.503C359.005 199.438 355.751 218.615 349.751 236.524H250.238C252.402 243.001 254.938 249.348 257.834 255.532H342.15C339.087 262.073 335.631 268.421 331.803 274.545H268.178C272.325 281.165 276.897 287.511 281.863 293.541H318.122C312.552 300.313 306.492 306.668 299.992 312.554C331.849 341.42 374.109 359.008 420.492 359.008C519.631 359.008 600.002 278.647 600.002 179.508C600.002 80.379 519.631 0.00799561 420.492 0.00799561" fill="#EE9F2D"/><path d="M576.07 279.564C576.07 276.365 578.662 273.763 581.866 273.763C585.07 273.763 587.662 276.365 587.662 279.564C587.662 282.763 585.07 285.365 581.866 285.365C578.662 285.365 576.07 282.763 576.07 279.564ZM581.866 283.972C584.3 283.971 586.273 281.998 586.274 279.564C586.274 277.132 584.303 275.162 581.872 275.16H581.866C579.437 275.157 577.466 277.123 577.462 279.551V279.565C577.46 281.998 579.43 283.971 581.862 283.973C581.863 283.972 581.865 283.972 581.866 283.972V283.972ZM581.083 282.112H579.896V277.016H582.045C582.495 277.016 582.953 277.016 583.35 277.27C583.763 277.549 583.996 278.041 583.996 278.549C583.996 279.12 583.658 279.653 583.112 279.861L584.05 282.111H582.735L581.956 280.094H581.085L581.083 282.112V282.112ZM581.083 279.222H581.741C581.987 279.222 582.246 279.243 582.467 279.122C582.662 278.997 582.763 278.763 582.763 278.538C582.758 278.329 582.651 278.136 582.475 278.02C582.268 277.891 581.939 277.919 581.717 277.919H581.083V279.222ZM137.583 199.159C135.537 198.921 134.638 198.858 133.233 198.858C122.187 198.858 116.595 202.645 116.595 210.126C116.595 214.737 119.324 217.671 123.582 217.671C131.521 217.671 137.241 210.112 137.583 199.159V199.159ZM151.754 232.155H135.608L135.979 224.479C131.053 230.544 124.483 233.428 115.553 233.428C104.99 233.428 97.7492 225.178 97.7492 213.199C97.7492 195.175 110.345 184.658 131.966 184.658C134.174 184.658 137.008 184.857 139.907 185.228C140.511 182.787 140.67 181.74 140.67 180.427C140.67 175.519 137.274 173.69 128.17 173.69C118.637 173.582 110.774 175.961 107.545 177.023C107.749 175.794 110.245 160.364 110.245 160.364C119.957 157.518 126.361 156.447 133.57 156.447C150.302 156.447 159.166 163.96 159.149 178.159C159.182 181.964 158.552 186.659 157.57 192.83C155.879 203.564 152.25 226.551 151.754 232.155V232.155ZM89.5962 232.155H70.1092L81.2712 162.158L56.3462 232.155H43.0672L41.4252 162.558L29.6922 232.155H11.4502L26.6872 141.099H54.7082L56.4082 192.067L73.5002 141.099H104.667L89.5962 232.155ZM444.566 199.159C442.529 198.921 441.625 198.858 440.224 198.858C429.183 198.858 423.59 202.645 423.59 210.126C423.59 214.737 426.316 217.671 430.573 217.671C438.513 217.671 444.237 210.112 444.566 199.159V199.159ZM458.75 232.155H442.604L442.97 224.479C438.044 230.544 431.47 233.428 422.548 233.428C411.983 233.428 404.748 225.178 404.748 213.199C404.748 195.175 417.336 184.658 438.961 184.658C441.169 184.658 443.998 184.857 446.895 185.228C447.499 182.787 447.658 181.74 447.658 180.427C447.658 175.519 444.266 173.69 435.162 173.69C425.629 173.582 417.775 175.961 414.533 177.023C414.737 175.794 417.242 160.364 417.242 160.364C426.954 157.518 433.354 156.447 440.555 156.447C457.295 156.447 466.159 163.96 466.142 178.159C466.174 181.964 465.545 186.659 464.563 192.83C462.879 203.564 459.242 226.551 458.75 232.155V232.155ZM238.36 231.03C233.027 232.709 228.869 233.428 224.36 233.428C214.398 233.428 208.961 227.703 208.961 217.161C208.819 213.89 210.394 205.281 211.632 197.424C212.757 190.507 220.081 146.895 220.081 146.895H239.452L237.189 158.103H248.888L246.246 175.899H234.504C232.254 189.982 229.05 207.524 229.013 209.849C229.013 213.665 231.05 215.332 235.684 215.332C237.905 215.332 239.624 215.105 240.938 214.632L238.36 231.03V231.03ZM297.752 230.43C291.098 232.464 284.677 233.447 277.873 233.43C256.189 233.409 244.886 222.084 244.886 200.398C244.886 175.085 259.266 156.451 278.785 156.451C294.756 156.451 304.956 166.884 304.956 183.247C304.956 188.676 304.256 193.976 302.568 201.459H263.994C262.689 212.2 269.564 216.676 280.831 216.676C287.766 216.676 294.019 215.247 300.973 212.013L297.752 230.43V230.43ZM286.864 186.53C286.971 184.987 288.919 173.313 277.851 173.313C271.68 173.313 267.268 178.017 265.471 186.53H286.864V186.53ZM163.444 181.513C163.444 190.88 167.986 197.339 178.286 202.189C186.178 205.898 187.398 206.999 187.398 210.359C187.398 214.976 183.919 217.06 176.207 217.06C170.394 217.06 164.986 216.152 158.749 214.138C158.749 214.138 156.186 230.459 156.069 231.24C160.499 232.207 164.449 233.101 176.348 233.43C196.911 233.43 206.407 225.601 206.407 208.68C206.407 198.505 202.431 192.534 192.67 188.046C184.499 184.296 183.562 183.459 183.562 180.001C183.562 175.997 186.799 173.955 193.099 173.955C196.924 173.955 202.149 174.363 207.099 175.067L209.874 157.892C204.828 157.092 197.178 156.45 192.724 156.45C170.923 156.451 163.377 167.838 163.444 181.513V181.513ZM392.534 158.397C397.946 158.397 402.992 159.818 409.946 163.318L413.134 143.555C410.28 142.434 400.23 135.855 391.717 135.855C378.676 135.855 367.652 142.326 359.897 153.005C348.588 149.259 343.939 156.83 338.24 164.372L333.177 165.551C333.56 163.068 333.906 160.601 333.789 158.105H315.893C313.448 181.022 309.115 204.233 305.722 227.18L304.838 232.156H324.334C327.588 211.013 329.371 197.476 330.455 188.314L337.796 184.23C338.893 180.152 342.325 178.772 349.213 178.939C348.287 183.947 347.824 189.03 347.83 194.123C347.83 218.348 360.9 233.431 381.88 233.431C387.284 233.431 391.921 232.719 399.101 230.773L402.531 210.014C396.073 213.195 390.772 214.691 385.972 214.691C374.643 214.691 367.788 206.328 367.788 192.506C367.788 172.455 377.984 158.397 392.534 158.397" fill="black"/><path d="M95.2095 226.744H75.7184L86.8895 156.756L61.9635 226.744H48.6805L47.0385 157.156L35.3055 226.744H17.0645L32.3015 135.702H60.3224L61.1104 192.064L80.0145 135.702H110.281L95.2095 226.744Z" fill="white"/><path d="M557.52 141.104L553.199 167.413C547.87 160.4 542.145 155.325 534.587 155.325C524.754 155.325 515.804 162.78 509.945 173.75C501.787 172.058 493.348 169.187 493.348 169.187L493.344 169.254C494.002 163.12 494.265 159.379 494.206 158.108H476.306C473.868 181.025 469.535 204.236 466.149 227.183L465.256 232.159H484.748C487.381 215.063 489.396 200.868 490.881 189.608C497.539 183.592 500.873 178.342 507.602 178.692C504.623 185.897 502.877 194.195 502.877 202.709C502.877 221.222 512.243 233.434 526.41 233.434C533.552 233.434 539.031 230.972 544.377 225.263L543.464 232.147H561.899L576.741 141.105L557.52 141.104V141.104ZM533.149 215.045C526.515 215.045 523.166 210.137 523.166 200.449C523.166 185.894 529.437 175.574 538.278 175.574C544.973 175.574 548.598 180.678 548.598 190.083C548.599 204.762 542.228 215.045 533.149 215.045V215.045Z" fill="black"/><path d="M143.19 193.764C141.148 193.528 140.244 193.465 138.844 193.465C127.798 193.465 122.21 197.252 122.21 204.731C122.21 209.335 124.939 212.278 129.189 212.278C137.136 212.277 142.857 204.719 143.19 193.764V193.764ZM157.368 226.748H141.222L141.589 219.085C136.668 225.139 130.089 228.035 121.168 228.035C110.601 228.035 103.363 219.785 103.363 207.806C103.363 189.774 115.955 179.264 137.58 179.264C139.788 179.264 142.622 179.464 145.518 179.835C146.122 177.394 146.281 176.348 146.281 175.027C146.281 170.118 142.889 168.298 133.785 168.298C124.248 168.19 116.389 170.569 113.156 171.619C113.36 170.394 115.856 154.982 115.856 154.982C125.564 152.124 131.976 151.053 139.176 151.053C155.913 151.053 164.78 158.57 164.764 172.757C164.793 176.578 164.16 181.27 163.18 187.432C161.493 198.156 157.861 221.156 157.368 226.748V226.748ZM418.748 138.156L415.557 157.923C408.607 154.427 403.557 153.003 398.15 153.003C383.599 153.003 373.4 167.061 373.4 187.109C373.4 200.93 380.257 209.29 391.584 209.29C396.384 209.29 401.68 207.798 408.138 204.615L404.717 225.365C397.533 227.322 392.901 228.035 387.492 228.035C366.515 228.035 353.441 212.951 353.441 188.726C353.441 156.176 371.5 133.426 397.329 133.426C405.836 133.427 415.89 137.035 418.748 138.156V138.156ZM450.191 193.764C448.15 193.528 447.25 193.465 445.844 193.465C434.803 193.465 429.211 197.252 429.211 204.731C429.211 209.335 431.94 212.278 436.194 212.278C444.132 212.277 449.857 204.719 450.191 193.764V193.764ZM464.369 226.748H448.219L448.59 219.085C443.665 225.139 437.09 228.035 428.169 228.035C417.606 228.035 410.365 219.785 410.365 207.806C410.365 189.774 422.961 179.264 444.577 179.264C446.79 179.264 449.619 179.464 452.518 179.835C453.119 177.394 453.281 176.348 453.281 175.027C453.281 170.118 449.888 168.298 440.786 168.298C431.253 168.19 423.39 170.569 420.156 171.619C420.36 170.394 422.86 154.982 422.86 154.982C432.569 152.124 438.976 151.053 446.176 151.053C462.917 151.053 471.78 158.57 471.759 172.757C471.792 176.578 471.163 181.27 470.18 187.432C468.498 198.156 464.857 221.156 464.369 226.748ZM243.979 225.627C238.641 227.306 234.483 228.035 229.979 228.035C220.017 228.035 214.58 222.309 214.58 211.767C214.442 208.488 216.018 199.887 217.255 192.031C218.375 185.105 225.7 141.497 225.7 141.497H245.068L242.808 152.709H252.749L250.103 170.497H240.128C237.878 184.589 234.665 202.117 234.632 204.447C234.632 208.277 236.673 209.929 241.303 209.929C243.524 209.929 245.241 209.713 246.557 209.238L243.979 225.627V225.627ZM303.37 225.035C296.72 227.068 290.291 228.047 283.491 228.035C261.806 228.014 250.504 216.689 250.504 195.002C250.504 169.681 264.883 151.052 284.403 151.052C300.374 151.052 310.574 161.481 310.574 177.852C310.574 183.286 309.874 188.585 308.19 196.064H269.616C268.31 206.805 275.185 211.286 286.453 211.286C293.383 211.286 299.641 209.851 306.591 206.609L303.37 225.035V225.035ZM292.479 181.123C292.595 179.585 294.539 167.906 283.466 167.906C277.299 167.906 272.887 172.623 271.091 181.123H292.479ZM169.059 176.118C169.059 185.485 173.601 191.936 183.901 196.793C191.793 200.502 193.013 201.605 193.013 204.965C193.013 209.581 189.53 211.664 181.825 211.664C176.009 211.664 170.6 210.756 164.358 208.743C164.358 208.743 161.804 225.064 161.687 225.844C166.108 226.811 170.062 227.694 181.962 228.035C202.528 228.035 212.021 220.206 212.021 203.289C212.021 193.109 208.05 187.139 198.284 182.652C190.117 178.893 189.171 178.068 189.171 174.606C189.171 170.606 192.417 168.547 198.713 168.547C202.534 168.547 207.759 168.968 212.717 169.672L215.488 152.493C210.446 151.693 202.796 151.052 198.342 151.052C176.538 151.052 168.996 162.431 169.059 176.118V176.118ZM567.509 226.748H549.071L549.988 219.855C544.641 225.572 539.163 228.035 532.02 228.035C517.854 228.035 508.492 215.822 508.492 197.309C508.492 172.679 523.013 151.917 540.2 151.917C547.759 151.917 553.479 155.004 558.804 162.013L563.129 135.705H582.35L567.509 226.748V226.748ZM538.763 209.639C547.838 209.639 554.213 199.356 554.213 184.686C554.213 175.281 550.584 170.177 543.888 170.177C535.051 170.177 528.773 180.492 528.773 195.052C528.772 204.738 532.13 209.639 538.763 209.639ZM481.921 152.71C479.48 175.627 475.148 198.84 471.759 221.773L470.867 226.749H490.358C497.33 181.474 499.016 172.632 509.946 173.74C511.688 164.473 514.928 156.357 517.345 152.261C509.182 150.561 504.624 155.174 498.657 163.936C499.128 160.148 499.99 156.469 499.819 152.711L481.921 152.71V152.71ZM321.501 152.71C319.055 175.627 314.722 198.84 311.334 221.773L310.446 226.749H329.946C336.909 181.474 338.592 172.632 349.516 173.74C351.266 164.473 354.507 156.357 356.915 152.261C348.761 150.561 344.198 155.174 338.236 163.936C338.707 160.148 339.56 156.469 339.398 152.711L321.501 152.71V152.71ZM576.071 220.951C576.067 217.752 578.657 215.156 581.855 215.152H581.867C585.064 215.148 587.66 217.738 587.663 220.935V220.951C587.662 224.152 585.068 226.746 581.867 226.748C578.666 226.746 576.072 224.152 576.071 220.951V220.951ZM581.867 225.356C584.298 225.358 586.269 223.387 586.27 220.957V220.953C586.273 218.52 584.302 216.547 581.871 216.545H581.867C579.432 216.546 577.46 218.519 577.459 220.953C577.461 223.385 579.434 225.356 581.867 225.356ZM581.083 223.485H579.895V218.403H582.048C582.494 218.403 582.957 218.412 583.344 218.657C583.761 218.94 583.998 219.424 583.998 219.931C583.998 220.506 583.661 221.043 583.11 221.248L584.051 223.484H582.731L581.952 221.475H581.082L581.083 223.485ZM581.083 220.606H581.736C581.982 220.606 582.249 220.625 582.465 220.506C582.661 220.381 582.761 220.145 582.761 219.918C582.752 219.708 582.647 219.514 582.474 219.395C582.27 219.278 581.932 219.311 581.711 219.311H581.082L581.083 220.606V220.606Z" fill="white"/></svg>
+                        Pay with MasterCard
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- Script -->
+    <!-- Flowbite -->
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.js" integrity="sha512-LThUFuq6Y8DTeSxG7VgJQu+3slKAhZ1u3z1EJdZESaVuQIEJ7TXC/DV8xNNEDFW01iWF4tUuzeC4RdiyrRPdRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- slick -->
+    <script src="../src/js/slick/slick.js"></script>
+    <script >
+        $('.banner__slick').slick({
+            dots: true,
+            infinite: true,
+            speed: 700,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+    </script>
+    <!--  -->
+    <!-- thư viện Jquery -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+        integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- CountUp JS -->
+        <!-- Code của hàm chạy số -->
+        <script src="./js/jquery.countup.js"></script>
+
+        <script>
+        $(".counter").countUp();
+        </script>
+        <!-- Chat-->
+        <script>
+            function toggleChat() {
+                var chatBox = document.getElementById("chatBox");
+                chatBox.classList.toggle("hidden");
+            }
+            function showAnswer(answerId) {
+                var answers = document.querySelectorAll('.hidden.mt-3.p-2.bg-gray-200.rounded');
+                answers.forEach(ans => ans.classList.add('hidden'));
+                document.getElementById(answerId).classList.remove("hidden");
+            }
+        </script>
+        
+        <!-- thông tin đăng nhập  -->
+        <script>
+            function handleLogin(event) {
+                event.preventDefault();
+                const username = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const errorMessage = document.getElementById("error-message");
+        
+                if (username === "admin" && password === "admin123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Admin.");
+                    window.location.href = "admin.html";
+                } else if (username === "user" && password === "user123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Người dùng.");
+                    window.location.href = "index.html";
+                } else {
+                    errorMessage.classList.remove("hidden");
+                }
+            }
+        
+            function clearError() {
+                document.getElementById("error-message").classList.add("hidden");
+            }
+        
+            function showResetForm() {
+                document.getElementById("reset-password-form").classList.remove("hidden");
+            }
+        
+            function handlePasswordReset(event) {
+                event.preventDefault();
+                const email = document.getElementById("reset-email").value;
+                alert("Yêu cầu đặt lại mật khẩu đã được gửi đến " + email);
+            }
+        </script>
+        <!-- popup -->
+        <script>
+            function showPopup(type) {
+                let content = '';
+                switch (type) {
+                    case 'phone':
+                        content = 'Số điện thoại liên hệ: 0912345678';
+                        break;
+                    case 'email':
+                        content = 'Email liên hệ: contact@email.com';
+                        break;
+                    case 'facebook':
+                        content = 'Trang Facebook: facebook.com/shopbanh';
+                        break;
+                    case 'instagram':
+                        content = 'Instagram: @shopbanh';
+                        break;
+                }
+                document.getElementById('popup-content').textContent = content;
+                document.getElementById('popup').classList.remove('hidden');
+            }
+        
+            function closePopup() {
+                document.getElementById('popup').classList.add('hidden');
+            }
+        </script>
+</body>
+</html>

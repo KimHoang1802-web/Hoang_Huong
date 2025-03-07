@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN - CAKE BAKERY AND GIFT</title>
+    <!-- Font Aw -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Slick -->
+    <link rel="stylesheet" href="../src/js/slick/slick.css">
+    <link rel="stylesheet" href="../src/js/slick/slick-theme.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- GG -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <!--  -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Flowbite -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css"  rel="stylesheet" />
+    <!-- Animate -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!--  -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/output.css">
+</head>
+<body class="flex items-center justify-center max-h-screen">
+    <!-- LOGIN -->
+    <section class="min-h-screen flex items-center justify-center bg-no-repeat bg-center bg-cover"
+    style="background-image: url('/src/img/login.svg'); background-size: contain;">
+        <div class="mx-auto flex justify-center items-center min-h-screen px-4 container">
+            <div class="p-8 shadow-lg rounded-xl w-full max-w-md">
+                <h2 class="text-xl font-bold text-gray-800 text-center">Đăng ký / Đăng nhập</h2>
+                <p class="text-gray-500 text-center text-sm mb-4">
+                    
+                </p>
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="E-mail Address"
+                    class="w-full px-4 py-2 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    class="w-full px-4 py-2 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button
+                    onclick="handleLogin()"
+                    class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+                >
+                    Login
+                </button>
+                <div class="text-right mt-2">
+                    <a href="#" class="text-blue-500 text-sm">Forgot password?</a>
+                </div>
+                <div class="mt-4 text-center text-gray-600 text-sm">Or login with</div>
+                <div class="flex justify-center gap-4 mt-3">
+                    <button class="bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900">
+                        Facebook
+                    </button>
+                    <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700">
+                        Google
+                    </button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                        LinkedIn
+                    </button>
+                </div>
+                <div class="text-center mt-4 text-sm">
+                    <a href="#" class="text-blue-500 font-medium">Register new account</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!-- Script -->
+    <!-- Flowbite -->
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.2/flowbite.js" integrity="sha512-LThUFuq6Y8DTeSxG7VgJQu+3slKAhZ1u3z1EJdZESaVuQIEJ7TXC/DV8xNNEDFW01iWF4tUuzeC4RdiyrRPdRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- slick -->
+    <script src="../src/js/slick/slick.js"></script>
+    <script >
+        $('.banner__slick').slick({
+            dots: true,
+            infinite: true,
+            speed: 700,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+    </script>
+    <!--  -->
+    <!-- thư viện Jquery -->
+        <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"
+        integrity="sha512-ZKNVEa7gi0Dz4Rq9jXcySgcPiK+5f01CqW+ZoKLLKr9VMXuCsw3RjWiv8ZpIOa0hxO79np7Ec8DDWALM0bDOaQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        ></script>
+
+        <!-- CountUp JS -->
+        <!-- Code của hàm chạy số -->
+        <script src="./js/jquery.countup.js"></script>
+
+        <script>
+        $(".counter").countUp();
+        </script>
+        <!-- Chat-->
+        <script>
+            function toggleChat() {
+                var chatBox = document.getElementById("chatBox");
+                chatBox.classList.toggle("hidden");
+            }
+            function showAnswer(answerId) {
+                var answers = document.querySelectorAll('.hidden.mt-3.p-2.bg-gray-200.rounded');
+                answers.forEach(ans => ans.classList.add('hidden'));
+                document.getElementById(answerId).classList.remove("hidden");
+            }
+        </script>
+        
+        <!-- thông tin đăng nhập  -->
+        <script>
+            function handleLogin(event) {
+                event.preventDefault();
+                const username = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const errorMessage = document.getElementById("error-message");
+        
+                if (username === "admin" && password === "admin123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Admin.");
+                    window.location.href = "admin.html";
+                } else if (username === "user" && password === "user123") {
+                    alert("Đăng nhập thành công! Chuyển hướng đến trang Người dùng.");
+                    window.location.href = "index.html";
+                } else {
+                    errorMessage.classList.remove("hidden");
+                }
+            }
+        
+            function clearError() {
+                document.getElementById("error-message").classList.add("hidden");
+            }
+        
+            function showResetForm() {
+                document.getElementById("reset-password-form").classList.remove("hidden");
+            }
+        
+            function handlePasswordReset(event) {
+                event.preventDefault();
+                const email = document.getElementById("reset-email").value;
+                alert("Yêu cầu đặt lại mật khẩu đã được gửi đến " + email);
+            }
+        </script>
+        <!-- popup -->
+        <script>
+            function showPopup(type) {
+                let content = '';
+                switch (type) {
+                    case 'phone':
+                        content = 'Số điện thoại liên hệ: 0912345678';
+                        break;
+                    case 'email':
+                        content = 'Email liên hệ: contact@email.com';
+                        break;
+                    case 'facebook':
+                        content = 'Trang Facebook: facebook.com/shopbanh';
+                        break;
+                    case 'instagram':
+                        content = 'Instagram: @shopbanh';
+                        break;
+                }
+                document.getElementById('popup-content').textContent = content;
+                document.getElementById('popup').classList.remove('hidden');
+            }
+        
+            function closePopup() {
+                document.getElementById('popup').classList.add('hidden');
+            }
+        </script>
+        <!-- Xử lý trang  -->
+        <script>
+            function handleLogin() {
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+        
+                if (!email || !password) {
+                    alert("Vui lòng nhập email và mật khẩu!");
+                    return;
+                }
+        
+                if (email === "admin@gmail.com" && password === "admin") {
+                    window.location.href = "admin.html";
+                } else if (email === "user@gmail.com" && password === "user") {
+                    window.location.href = "index.html";
+                } else {
+                    alert("Email hoặc mật khẩu không đúng!");
+                }
+            }
+        </script>
+</body>
+</html>
